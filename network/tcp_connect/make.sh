@@ -18,6 +18,6 @@ if [ "$opt" == "clean" ]; then
 	exit 0
 fi
 
-execute_and_show g++ server.cpp -g -o server
+execute_and_show g++ server.cpp -g -o xdserver
 execute_and_show g++ client.cpp -g -o client -std=c++11 -lpthread
 
