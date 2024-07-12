@@ -1,0 +1,33 @@
+#!/usr/bin/env bpftrace
+
+/*
+函数声明如下：
+int tcp_conn_request(struct request_sock_ops *rsk_ops,
+		     const struct tcp_request_sock_ops *af_ops,
+		     struct sock *sk, struct sk_buff *skb)
+*/
+
+kprobe:tcp_conn_request
+{
+	// 注意：arg0表示函数的第1个参数
+	$sk = (struct sock*)arg2;
+	$inet_csk=(struct inet_connection_sock *)$sk;
+
+	// 当前半连接队列长度，~~废弃：qlen这里貌似没办法获取到数量~~
+	// qlen定义为`atomic_t	qlen;`，而atomic_t是一个结构体，需要再qlen.counter
+	$syn_queue_num = $inet_csk->icsk_accept_queue.qlen.counter;
+	// 半连接队列最大长度，4.4+的内核和全连接最大限制一样
+	$syn_queue_max = $sk->sk_max_ack_backlog;
+	// 当前全连接队列长度
+	$accept_queue_num = $sk->sk_ack_backlog;
+	// 全连接队列最大长度
+	$accept_queue_max = $sk->sk_max_ack_backlog;
+
+	printf( "syn_queue_num:%d, syn_queue_max:%d\n accept_queue_num:%d, accept_queue_max:%d\n", 
+		$syn_queue_num, $syn_queue_max,
+		$accept_queue_num, $accept_queue_max );
+	
+	if( $accept_queue_num > $accept_queue_max ){
+		printf("call stack:%s\n", kstack);
+	}
+}
