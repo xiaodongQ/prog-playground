@@ -58,11 +58,11 @@ int main(int argc, char const *argv[])
             continue;
         }
         
-        // 接收客户端消息
-        // valread = read(new_socket, buffer, 1024);
-        // printf("Client: %s\n", buffer);
+        // 接收客户端消息，curl客户端请求时，需要先接收下其请求
+        valread = read(new_socket, buffer, 1024);
+        printf("Client: %s\n", buffer);
 
-		// 用于打印客户端的IP地址和端口号
+        // 用于打印客户端的IP地址和端口号
         char client_ip[INET_ADDRSTRLEN];
         inet_ntop(AF_INET, &address.sin_addr, client_ip, sizeof(client_ip));
 
