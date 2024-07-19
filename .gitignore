@@ -1,3 +1,4 @@
 *.dSYM
 *.o
 network/tcp_timewait_rcv_syn/server
+leveldb/test_leveldb
