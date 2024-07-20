@@ -127,7 +127,8 @@ void test_leveldb_iterator()
 	leveldb::DB* db;
 	leveldb::Options options;
 	options.create_if_missing = true;
-	leveldb::Status s = leveldb::DB::Open(options, "/tmp/testdb", &db);
+	// 为防止之前记录影响观察，用个单独的数据库
+	leveldb::Status s = leveldb::DB::Open(options, "/tmp/testdb_for_snapshot", &db);
 	assert(s.ok());
 
 	// 初始化数据
@@ -161,7 +162,7 @@ void test_leveldb_iterator()
 	// 也可以指定key的范围遍历，`Seek`并给定结束条件
 	string start = "xdkey2";
 	string end = "xdkey3";
-	cout << "scan rang [" << start << ", " << end << "]..." << endl;
+	cout << "scan range [" << start << ", " << end << "]..." << endl;
 	// 自行控制结束条件
 	for (it->Seek(start); it->Valid() && it->key().ToString() <= end; it->Next()) {
 		cout << it->key().ToString() << ": "  << it->value().ToString() << endl;
