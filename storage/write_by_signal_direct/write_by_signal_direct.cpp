@@ -1,108 +1,82 @@
-#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <fcntl.h>
 #include <unistd.h>
+#include <fcntl.h>
+#include <signal.h>
 #include <sys/stat.h>
-#include <errno.h>
-#include <sys/sysmacros.h>
+#include <sys/types.h>
+#include <string.h>
 
-#define FILE_PATH "./testfile"
+#define FILENAME "/home/tempfile"
+#define BUFFER_SIZE (4096 * 2) // 假设文件系统块大小为 4KB，这里写8KB数据
+#define BLOCK_SIZE 4096 // 文件系统块大小，通常是 4KB，用于下面的对齐
 
-void signal_handler(int sig)
+int fd;
+char *buffer;
+off_t offset;
+
+void handle_signal(int signum)
 {
-    struct stat st;
-    int fd;
-    off_t offset;
-    size_t block_size;
-
-    if (sig == SIGUSR1) {
-        printf("Received SIGUSR1 signal, writing to file...\n");
-
-        // 打开文件并获取文件系统块大小
-        fd = open(FILE_PATH, O_RDWR | O_CREAT | O_DIRECT, 0644);
-        if (fd == -1) {
-            perror("open");
-            exit(1);
-        }
-
-        if (fstat(fd, &st) == -1) {
-            perror("fstat");
-            close(fd);
-            exit(1);
-        }
-
-        // 确定文件系统块大小
-        block_size = (size_t)st.st_blksize;
-        if (block_size == 0) {
-            // 如果 st_blksize 为 0，则使用 getconf 或默认值
-            block_size = 4096; // 默认假设为 4K
-        }
-
-        // 确保文件大小至少为一个块大小
-        if (st.st_size < block_size) {
-            off_t new_size = block_size;
-            if (ftruncate(fd, new_size) == -1) {
-                perror("ftruncate");
-                close(fd);
-                exit(1);
-            }
-        }
-
-        // 将文件指针移到对齐的偏移量
-        offset = lseek(fd, 0, SEEK_SET);
-        if (offset % block_size != 0) {
-            offset += (block_size - (offset % block_size));
-            if (lseek(fd, offset, SEEK_SET) == -1) {
-                perror("lseek");
-                close(fd);
-                exit(1);
-            }
-        }
-
-        // 创建足够大的缓冲区以满足对齐要求
-        char *buf = (char*)malloc(block_size);
-        if (!buf) {
-            perror("malloc");
-            close(fd);
-            exit(1);
-        }
-
-        memset(buf, 'a', block_size - 1); // 填充数据
-        buf[block_size - 1] = '\0'; // 终止符
-
-        ssize_t bytes_written = write(fd, buf, block_size);
-        if (bytes_written != (ssize_t)block_size) {
-            if (errno == EINVAL) {
-                printf("write failed with EINVAL. This usually means the buffer is not properly aligned or the file pointer is not at the right position.\n");
-            }
-            perror("write");
-            free(buf);
-            close(fd);
-            exit(1);
-        }
-        printf("write success\n");
-        free(buf);
-        close(fd);
+	if (signum != SIGUSR1) {
+		printf("signum: %d not expected!\n", signum);
+		exit(1);
+	}
+    // 写入数据
+    if (write(fd, buffer + offset, BUFFER_SIZE - offset) != (BUFFER_SIZE - offset)) {
+        perror("Error writing to file");
+        exit(1);
     }
+
+    // 更新偏移量
+    offset += (BUFFER_SIZE - offset);
+
+    // 如果文件写满了，重置偏移量
+    if (offset >= BUFFER_SIZE) {
+        offset = 0;
+    }
+
+    // printf("Wrote %zu bytes to file.\n", BUFFER_SIZE - offset);
 }
 
-int main()
+int main(void)
 {
     pid_t pid = getpid();
     printf("pid:%d\n", pid);
 
-    // 安装信号处理器
-    if (signal(SIGUSR1, signal_handler) == SIG_ERR) {
-        perror("signal");
-        exit(1);
+    void *ptr;
+
+    // 初始化偏移量
+    offset = 0;
+
+    // 打开文件，使用 O_DIRECT 标志
+    fd = open(FILENAME, O_WRONLY | O_CREAT | O_DIRECT, S_IRUSR | S_IWUSR);
+    if (fd == -1) {
+        perror("Error opening file");
+        return 1;
     }
 
+    // 分配缓冲区，并确保它是在页面边界上对齐
+    if (posix_memalign(&ptr, BLOCK_SIZE, BUFFER_SIZE) != 0) {
+        perror("Memory allocation failed");
+        close(fd);
+        return 1;
+    }
+
+    buffer = (char *)ptr;
+
+    // 填充缓冲区
+    memset(buffer, 'X', BUFFER_SIZE);
+
+    // 设置信号处理函数
+    signal(SIGUSR1, handle_signal);
+
+    // 主循环
     while (1) {
-        // 无操作，等待信号
         pause();
     }
 
+    // 不会执行到这里，因为程序是无限循环
+    free(buffer);
+    close(fd);
     return 0;
 }
