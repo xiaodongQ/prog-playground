@@ -5,12 +5,12 @@
 #include <unistd.h>
 
 
-#define FILE_PATH "/tmp/testfile"
+#define FILE_PATH "/home/tempfile"
 
 void signal_handler(int sig)
 {
     if (sig == SIGUSR1) {
-        printf("Received SIGUSR1 signal, writing to file...\n");
+        // printf("Received SIGUSR1 signal, writing to file...\n");
         FILE *fp = fopen(FILE_PATH, "w");
         if (fp == NULL) {
             perror("fopen");
@@ -19,8 +19,6 @@ void signal_handler(int sig)
         if (fprintf(fp, "hello world\n") < 0) {
             printf("write failed!\n");
             perror("fprintf");
-        } else {
-            printf("write success\n");
         }
         fclose(fp);
     }
