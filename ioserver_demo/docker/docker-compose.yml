@@ -26,7 +26,7 @@ services:
   server:
     build:
       context: ..
-      dockerfile: Dockerfile.server
+      dockerfile: docker/Dockerfile.server
     ports:
       - "8080:8080"
     depends_on:
@@ -45,7 +45,7 @@ services:
   client:
     build:
       context: ..
-      dockerfile: Dockerfile.client
+      dockerfile: docker/Dockerfile.client
     depends_on:
       - server
     environment:
