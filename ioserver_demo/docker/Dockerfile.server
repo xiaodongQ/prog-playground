@@ -11,7 +11,6 @@ RUN yum -y update && yum -y install \
     cmake \
     mysql-devel \
     epel-release \
-    && yum -y install hiredis-devel \
     && yum clean all
 
 # 设置工作目录
@@ -19,6 +18,12 @@ WORKDIR /app
 
 # 复制源代码和配置文件
 COPY . /app/
+
+# 编译安装hiredis
+RUN cd third_party/hiredis && \
+    make && \
+    make install && \
+    ldconfig
 
 # 编译项目
 RUN make server
