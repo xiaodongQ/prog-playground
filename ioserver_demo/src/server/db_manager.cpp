@@ -1,5 +1,6 @@
 #include "db_manager.h"
 #include <stdexcept>
+#include "logger.h"
 
 namespace db {
 
@@ -16,37 +17,37 @@ DBManager::~DBManager() {
     }
 }
 
-bool DBManager::connectMySQL(const std::string& host, const std::string& user,
-                           const std::string& password, const std::string& database,
-                           unsigned int port) {
+bool DBManager::connectMySQL() {
     mysql_ = mysql_init(nullptr);
     if (!mysql_) {
         return false;
     }
 
-    if (!mysql_real_connect(mysql_, host.c_str(), user.c_str(),
-                          password.c_str(), database.c_str(),
-                          port, nullptr, 0)) {
+    if (!mysql_real_connect(mysql_, mysql_host_.c_str(), mysql_user_.c_str(),
+                          mysql_password_.c_str(), mysql_database_.c_str(),
+                          mysql_port_, nullptr, 0)) {
         mysql_close(mysql_);
         mysql_ = nullptr;
         return false;
     }
-
     return true;
 }
 
 bool DBManager::executeSQL(const std::string& sql) {
-    if (!mysql_) return false;
+    if (!mysql_) {
+        return false;
+    }
 
     if (mysql_query(mysql_, sql.c_str()) != 0) {
         return false;
     }
-
     return true;
 }
 
 bool DBManager::query(const std::string& sql) {
-    if (!mysql_) return false;
+    if (!mysql_) {
+        return false;
+    }
 
     if (mysql_query(mysql_, sql.c_str()) != 0) {
         return false;
@@ -61,9 +62,9 @@ bool DBManager::query(const std::string& sql) {
     return true;
 }
 
-bool DBManager::connectRedis(const std::string& host, int port) {
+bool DBManager::connectRedis() {
     struct timeval timeout = {1, 500000}; // 1.5 seconds
-    redis_ = redisConnectWithTimeout(host.c_str(), port, timeout);
+    redis_ = redisConnectWithTimeout(redis_host_.c_str(), redis_port_, timeout);
     
     if (!redis_ || redis_->err) {
         if (redis_) {
@@ -72,12 +73,13 @@ bool DBManager::connectRedis(const std::string& host, int port) {
         }
         return false;
     }
-
     return true;
 }
 
 bool DBManager::setCache(const std::string& key, const std::string& value) {
-    if (!redis_) return false;
+    if (!redis_) {
+        return false;
+    }
 
     redisReply* reply = (redisReply*)redisCommand(redis_, "SET %s %s",
                                                 key.c_str(), value.c_str());
@@ -86,12 +88,17 @@ bool DBManager::setCache(const std::string& key, const std::string& value) {
     }
 
     bool success = (reply->type != REDIS_REPLY_ERROR);
+    if (!success) {
+    }
+    
     freeReplyObject(reply);
     return success;
 }
 
 std::string DBManager::getCache(const std::string& key) {
-    if (!redis_) return "";
+    if (!redis_) {
+        return "";
+    }
 
     redisReply* reply = (redisReply*)redisCommand(redis_, "GET %s", key.c_str());
     if (!reply) {
@@ -100,7 +107,7 @@ std::string DBManager::getCache(const std::string& key) {
 
     std::string value;
     if (reply->type == REDIS_REPLY_STRING) {
-        value = std::string(reply->str, reply->len);
+        value = reply->str;
     }
 
     freeReplyObject(reply);

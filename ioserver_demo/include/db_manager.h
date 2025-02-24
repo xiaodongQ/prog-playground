@@ -14,14 +14,12 @@ public:
     ~DBManager();
 
     // MySQL操作
-    bool connectMySQL(const std::string& host, const std::string& user,
-                     const std::string& password, const std::string& database,
-                     unsigned int port = 3306);
+    bool connectMySQL();
     bool executeSQL(const std::string& sql);
     bool query(const std::string& sql);
 
     // Redis操作
-    bool connectRedis(const std::string& host = "127.0.0.1", int port = 6379);
+    bool connectRedis();
     bool setCache(const std::string& key, const std::string& value);
     std::string getCache(const std::string& key);
 

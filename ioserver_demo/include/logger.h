@@ -3,13 +3,12 @@
 
 #include <string>
 #include <fstream>
-#include <sstream>
-#include <mutex>
-#include <memory>
 #include <queue>
 #include <thread>
+#include <mutex>
 #include <condition_variable>
-#include <chrono>
+#include <memory>
+#include <sstream>
 
 namespace utils {
 
@@ -46,21 +45,20 @@ private:
 
     void log(LogLevel level, const std::string& message);
     void asyncWrite();
-    void rotateLogFile();
     std::string getCurrentTimestamp();
     std::string getLevelString(LogLevel level);
+    void rotateLogFile();
 
     std::ofstream log_file_;
     std::string log_filename_;
     size_t max_file_size_;
     LogLevel min_level_;
-    std::mutex mutex_;
-    
-    // 异步写入相关成员
+
     std::queue<std::string> message_queue_;
+    std::mutex mutex_;
     std::condition_variable cv_;
-    std::unique_ptr<std::thread> write_thread_;
     bool running_;
+    std::unique_ptr<std::thread> write_thread_;
 };
 
 } // namespace utils

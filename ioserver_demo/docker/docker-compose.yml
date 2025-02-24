@@ -29,6 +29,9 @@ services:
       dockerfile: docker/Dockerfile.server
     ports:
       - "8080:8080"
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     depends_on:
       - mysql
       - redis
@@ -46,6 +49,9 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile.client
+    dns:
+      - 8.8.8.8
+      - 114.114.114.114
     depends_on:
       - server
     environment:

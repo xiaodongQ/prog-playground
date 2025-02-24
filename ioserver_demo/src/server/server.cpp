@@ -104,18 +104,18 @@ bool setNonBlocking(int fd) {
 // 服务器类
 class Server {
 public:
-    Server()
+    Server(const std::string& config_path = "config/server_config.json")
         : port_(8080), threadPool_(4), dbManager_(), io_(nullptr) {
         logger_ = &utils::Logger::getInstance();
-        loadConfig();
+        loadConfig(config_path);
         logger_->info("Server initialized with configuration");
     }
 
-    void loadConfig() {
+    void loadConfig(const std::string& config_path) {
         try {
-            std::ifstream config_file("config/server_config.json");
+            std::ifstream config_file(config_path);
             if (!config_file.is_open()) {
-                throw std::runtime_error("Unable to open config file");
+                throw std::runtime_error("Unable to open config file: " + config_path);
             }
 
             json config = json::parse(config_file);
@@ -184,7 +184,7 @@ public:
         }
 
         // 初始化数据库连接
-        if (!dbManager_.connectMySQL("localhost", "root", "password", "testdb")) {
+        if (!dbManager_.connectMySQL()) {
             logger_->error("Failed to connect to MySQL");
             return false;
         }
@@ -314,7 +314,17 @@ private:
 
 } // anonymous namespace
 
-int main() {
+int main(int argc, char* argv[]) {
+    std::string config_path = "config/server_config.json";
+    
+    // 解析命令行参数
+    for (int i = 1; i < argc; i++) {
+        std::string arg = argv[i];
+        if ((arg == "-c" || arg == "--config") && i + 1 < argc) {
+            config_path = argv[++i];
+        }
+    }
+
     // 设置信号处理
     signal(SIGINT, signalHandler);
     signal(SIGTERM, signalHandler);
@@ -328,7 +338,7 @@ int main() {
     signal(SIGBUS, crashHandler);
 
     // 创建并启动服务器
-    Server server;
+    Server server(config_path);
     if (!server.init()) {
         return 1;
     }
@@ -343,7 +353,7 @@ int main() {
     while (running) {
         if (reload_config) {
             try {
-                server.loadConfig();
+                server.loadConfig(config_path);
                 reload_config = false;
             } catch (const std::exception& e) {
                 std::cerr << "Failed to reload config: " << e.what() << std::endl;

@@ -15,7 +15,7 @@ HIREDIS_PATCH=$(shell grep HIREDIS_PATCH hiredis.h | awk '{print $$3}')
 HIREDIS_SONAME=$(shell grep HIREDIS_SONAME hiredis.h | awk '{print $$3}')
 
 # Installation related variables and target
-PREFIX?=/usr/local
+PREFIX?=/usr
 INCLUDE_PATH?=include/hiredis
 LIBRARY_PATH?=lib64
 PKGCONF_PATH?=pkgconfig

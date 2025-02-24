@@ -7,8 +7,8 @@
         "mysql": {
             "host": "localhost",
             "user": "root",
-            "password": "password",
-            "database": "testdb"
+            "password": "test",
+            "database": "ioserver"
         },
         "redis": {
             "host": "localhost",
