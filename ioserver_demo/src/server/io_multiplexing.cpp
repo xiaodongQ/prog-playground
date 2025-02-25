@@ -103,7 +103,7 @@ bool PollIO::addEvent(int fd, EventType type) {
     return true;
 }
 
-bool PollIO::removeEvent(int fd, EventType type) {
+bool PollIO::removeEvent(int fd, [[maybe_unused]] EventType type) {
     if (fd < 0) return false;
     
     for (auto it = pollfds_.begin(); it != pollfds_.end();) {
@@ -171,7 +171,7 @@ bool EpollIO::addEvent(int fd, EventType type) {
     return epoll_ctl(epollfd_, EPOLL_CTL_ADD, fd, &ev) == 0;
 }
 
-bool EpollIO::removeEvent(int fd, EventType type) {
+bool EpollIO::removeEvent(int fd, [[maybe_unused]] EventType type) {
     if (fd < 0) return false;
     return epoll_ctl(epollfd_, EPOLL_CTL_DEL, fd, nullptr) == 0;
 }

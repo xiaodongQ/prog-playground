@@ -17,6 +17,7 @@
     },
     "logging": {
         "log_file": "server.log",
-        "log_level": "info"
+        "log_level": "debug",
+        "console_output": true
     }
 }

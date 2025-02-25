@@ -5,6 +5,7 @@
 #include <memory>
 #include <mysql/mysql.h>
 #include <hiredis/hiredis.h>
+#include "logger.h"
 
 namespace db {
 
@@ -29,9 +30,13 @@ public:
                           unsigned int port = 3306);
     void updateRedisConfig(const std::string& host, int port = 6379);
 
+    // 断开连接
+    void disconnect();
+
 private:
     MYSQL* mysql_;
     redisContext* redis_;
+    utils::Logger* logger_;
     
     // MySQL配置
     std::string mysql_host_;

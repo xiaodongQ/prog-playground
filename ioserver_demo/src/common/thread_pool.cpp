@@ -2,7 +2,7 @@
 
 namespace utils {
 
-ThreadPool::ThreadPool(size_t numThreads) : stop(false) {
+ThreadPool::ThreadPool(size_t numThreads) : stop_(false) {
     for (size_t i = 0; i < numThreads; ++i) {
         workers.emplace_back([this] {
             while (true) {
@@ -10,10 +10,10 @@ ThreadPool::ThreadPool(size_t numThreads) : stop(false) {
                 {
                     std::unique_lock<std::mutex> lock(queue_mutex);
                     condition.wait(lock, [this] {
-                        return stop || !tasks.empty();
+                        return stop_ || !tasks.empty();
                     });
                     
-                    if (stop && tasks.empty()) {
+                    if (stop_ && tasks.empty()) {
                         return;
                     }
                     
@@ -29,7 +29,7 @@ ThreadPool::ThreadPool(size_t numThreads) : stop(false) {
 ThreadPool::~ThreadPool() {
     {
         std::unique_lock<std::mutex> lock(queue_mutex);
-        stop = true;
+        stop_ = true;
     }
     condition.notify_all();
     
@@ -45,7 +45,7 @@ void ThreadPool::resize(size_t numThreads) {
         condition.wait(lock);
     }
     // 停止当前所有线程
-    stop = true;
+    stop_ = true;
     condition.notify_all();
     lock.unlock();
     
@@ -58,7 +58,7 @@ void ThreadPool::resize(size_t numThreads) {
     
     // 重置线程池状态
     workers.clear();
-    stop = false;
+    stop_ = false;
     
     // 创建新的线程
     for(size_t i = 0; i < numThreads; ++i) {
@@ -68,15 +68,28 @@ void ThreadPool::resize(size_t numThreads) {
                 {
                     std::unique_lock<std::mutex> lock(this->queue_mutex);
                     this->condition.wait(lock, [this] {
-                        return this->stop || !this->tasks.empty();
+                        return this->stop_ || !this->tasks.empty();
                     });
-                    if(this->stop && this->tasks.empty()) return;
+                    if(this->stop_ && this->tasks.empty()) return;
                     task = std::move(this->tasks.front());
                     this->tasks.pop();
                 }
                 task();
             }
         });
+    }
+}
+
+void ThreadPool::stop() {
+    {
+        std::unique_lock<std::mutex> lock(queue_mutex);
+        stop_ = true;
+    }
+    condition.notify_all();
+    for(std::thread &worker: workers) {
+        if(worker.joinable()) {
+            worker.join();
+        }
     }
 }
 
