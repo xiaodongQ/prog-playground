@@ -143,6 +143,7 @@ int PollIO::wait(std::vector<Event>& events, int timeout) {
 
 // EpollIO实现
 EpollIO::EpollIO(int max_events) : events_(max_events) {
+    // 构造时创建epoll实例；且在初始化列表中初始化events_的vector大小
     epollfd_ = epoll_create1(0);
     if (epollfd_ < 0) {
         throw std::runtime_error("epoll_create1 failed");
