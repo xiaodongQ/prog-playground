@@ -78,17 +78,26 @@ private:
 struct Result {
     long long sum;
     std::mutex mtx;
+    int task_count;
+    // 用于和task_count比较，所有都完成则进行通知
+    int task_done_count;
     std::condition_variable cond;
-    Result():sum(0) {}
+    Result():sum(0), task_count(0), task_done_count(0) {}
 };
 void task_run(const std::vector<int> &data, int start, int end, Result &result) {
     long long sum = 0;
     for(auto i = start; i < end; i++) {
         sum += data[i];
     }
+    
     lock_guard<mutex> lk(result.mtx);
     result.sum += sum;
-    printf("start:%d, end:%d, chunk sum:%lld, total:%lld\n", start, end, sum, result.sum);
+    result.task_done_count++;
+    printf("start:%d, end:%d, chunk sum:%lld, total:%lld, done count:%d, task:%d\n", 
+            start, end, sum, result.sum, result.task_done_count, result.task_count);
+    if(result.task_done_count == result.task_count) {
+        result.cond.notify_one();
+    }
 }
 
 int main(int argc, char *argv[])
@@ -97,6 +106,8 @@ int main(int argc, char *argv[])
     std::vector<int> data(10000000, 2);
     size_t chunk = data.size() / 8;
     Result result;
+    // 记录要执行的任务数
+    result.task_count = data.size()/chunk + ((data.size() % chunk == 0) ? 0 : 1);
     for(auto i = 0; i < data.size(); i += chunk) {
         // 循环不变量[start, end)
         int end = std::min(i + chunk, data.size());
@@ -106,7 +117,8 @@ int main(int argc, char *argv[])
 
     {
         // 等待执行完成，通过信号量通知
-        this_thread::sleep_for(chrono::seconds(1));
+        unique_lock<mutex> lock(result.mtx);
+        result.cond.wait(lock);
         cout << "result: " << result.sum << endl;
     }
 }
