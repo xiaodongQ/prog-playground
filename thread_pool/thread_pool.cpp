@@ -39,7 +39,8 @@ public:
     void enqueue_task(std::function<void()> &&task) {
         {
             unique_lock<mutex> lk(task_mtx);
-            tasks.emplace_back(task);
+            // 使用移动语义以调用移动构造
+            tasks.emplace_back(std::move(task));
         }
         // 条件变量通知，既可以放在锁内，也可以放在锁外，各有优劣
         // 持锁内通知：确保其他唤醒线程是最新的共享状态；性能方面，释放锁其他线程才能被唤醒
