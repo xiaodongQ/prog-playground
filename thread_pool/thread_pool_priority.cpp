@@ -56,6 +56,7 @@ public:
         {
             unique_lock<mutex> lk(task_mtx);
             // 使用移动语义以调用移动构造
+            // {xxx} 列表初始化（List Initialization），此处会自动调用合适的构造函数
             tasks.push({priority, std::move(task)});
         }
         // 条件变量通知，既可以放在锁内，也可以放在锁外，各有优劣
