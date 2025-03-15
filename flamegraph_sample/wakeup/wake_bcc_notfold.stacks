@@ -1,0 +1,1441 @@
+    target:          khugepaged
+Tracing blocked time (us) by kernel stack... Hit Ctrl-C to end.
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b229c1 do_idle
+    ffffffff9837adae schedule_idle
+    ffffffff9837a615 __sched_text_start
+    ffffffff97b1871a finish_task_switch
+    ffffffff97b1866e __raw_spin_unlock_irq
+    ffffffff98401d2f reschedule_interrupt
+    ffffffff97b1dd84 scheduler_ipi
+    ffffffff97b1da8c sched_ttwu_pending
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/6
+    target:          khugepaged
+        2
+
+    ffffffff98400242 ret_from_fork
+    ffffffff97b0f906 kthread
+    ffffffff97b0a00a worker_thread
+    ffffffff97b09777 process_one_work
+    ffffffff97b3b231 complete
+    ffffffff97b3ae63 swake_up_locked.part.3
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           kworker/1:3
+    target:          sshd
+        5
+
+    ffffffff98400242 ret_from_fork
+    ffffffff97b0f906 kthread
+    ffffffff97b09e40 worker_thread
+    ffffffff97b09777 process_one_work
+    ffffffff97fac737 flush_to_ldisc
+    ffffffff97facd9e tty_port_default_receive_buf
+    ffffffff97fa93c5 n_tty_receive_buf_common
+    ffffffff97b3a5cc __wake_up_common_lock
+    ffffffff97b3a43a __wake_up_common
+    ffffffff97d47814 pollwake
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           kworker/u64:1
+    target:          containerd
+        60
+
+    ffffffff984000ad entry_SYSCALL_64_after_hwframe
+    ffffffff97a042bb do_syscall_64
+    ffffffff97d31b8f ksys_write
+    ffffffff97d31915 vfs_write
+    ffffffff97d2e222 new_sync_write
+    ffffffff97d3a6f7 pipe_write
+    ffffffff97b3a5cc __wake_up_common_lock
+    ffffffff97b3a43a __wake_up_common
+    ffffffff97d83d01 ep_poll_callback
+    ffffffff97b3a43a __wake_up_common
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           containerd
+    target:          tuned
+        71
+
+    ffffffff984000ad entry_SYSCALL_64_after_hwframe
+    ffffffff97a042bb do_syscall_64
+    ffffffff97b93e35 __x64_sys_futex
+    ffffffff97b93556 do_futex
+    ffffffff97b90e50 futex_wake
+    ffffffff97b1d5e4 wake_up_q
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           tuned
+    target:          sedispatch
+        158
+
+    ffffffff984000ad entry_SYSCALL_64_after_hwframe
+    ffffffff97a042bb do_syscall_64
+    ffffffff97d31b8f ksys_write
+    ffffffff97d31915 vfs_write
+    ffffffff97d2e222 new_sync_write
+    ffffffff9819a1e7 sock_write_iter
+    ffffffff9819a14c sock_sendmsg
+    ffffffff982dada7 unix_stream_sendmsg
+    ffffffff9819eeb7 sock_def_readable
+    ffffffff97b3a5cc __wake_up_common_lock
+    ffffffff97b3a43a __wake_up_common
+    ffffffff97d47814 pollwake
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           auditd
+    target:          auditd
+        366
+
+    ffffffff984000ad entry_SYSCALL_64_after_hwframe
+    ffffffff97a042bb do_syscall_64
+    ffffffff97b93e35 __x64_sys_futex
+    ffffffff97b93556 do_futex
+    ffffffff97b90e50 futex_wake
+    ffffffff97b1d5e4 wake_up_q
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           auditd
+    target:          rcu_sched
+        380
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b6d066 rcu_core
+    ffffffff97b6bb73 rcu_report_qs_rdp
+    ffffffff97b3aed7 swake_up_one
+    ffffffff97b3ae63 swake_up_locked.part.3
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/2
+    target:          rcu_sched
+        2971
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b229c1 do_idle
+    ffffffff9837adae schedule_idle
+    ffffffff9837a615 __sched_text_start
+    ffffffff97b1871a finish_task_switch
+    ffffffff97b1866e __raw_spin_unlock_irq
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b6d052 rcu_core
+    ffffffff97b3aed7 swake_up_one
+    ffffffff97b3ae63 swake_up_locked.part.3
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/2
+    target:          rcu_sched
+        32693
+
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b6d052 rcu_core
+    ffffffff97b3aed7 swake_up_one
+    ffffffff97b3ae63 swake_up_locked.part.3
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           irqbalance
+    target:          rcu_sched
+        46700
+
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b6d1ef rcu_core
+    ffffffff97b3aed7 swake_up_one
+    ffffffff97b3ae63 swake_up_locked.part.3
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           redis-server
+    target:          rcu_sched
+        91588
+
+    ffffffff984000ad entry_SYSCALL_64_after_hwframe
+    ffffffff97a043f8 do_syscall_64
+    ffffffff97a03c6b exit_to_usermode_loop
+    ffffffff97b0e0ba task_work_run
+    ffffffff97b6bf8c call_rcu
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b6d052 rcu_core
+    ffffffff97b3aed7 swake_up_one
+    ffffffff97b3ae63 swake_up_locked.part.3
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           redis-server
+    target:          sssd_be
+        91670
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/4
+    target:          rcu_sched
+        126406
+
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b6d052 rcu_core
+    ffffffff97b3aed7 swake_up_one
+    ffffffff97b3ae63 swake_up_locked.part.3
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           redis-server
+    target:          rcu_sched
+        183205
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b7bbd8 run_timer_softirq
+    ffffffff97b7aeed call_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/15
+    target:          containerd
+        589752
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/3
+    target:          kworker/10:3
+        629194
+
+    ffffffff98400242 ret_from_fork
+    ffffffff97b0f906 kthread
+    ffffffff97b09e40 worker_thread
+    ffffffff97b09777 process_one_work
+    ffffffff97c9aef8 vmstat_shepherd
+    ffffffff97b09506 queue_delayed_work_on
+    ffffffff97b08c8d __queue_work
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           kworker/0:0
+    target:          kworker/3:1
+        952710
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b229c1 do_idle
+    ffffffff9837adae schedule_idle
+    ffffffff9837a615 __sched_text_start
+    ffffffff97b1871a finish_task_switch
+    ffffffff97b1866e __raw_spin_unlock_irq
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b7bd3e run_timer_softirq
+    ffffffff97b7aeed call_timer_fn
+    ffffffff97b08c8d __queue_work
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/3
+    target:          kworker/0:0
+        1129788
+
+    ffffffff984000ad entry_SYSCALL_64_after_hwframe
+    ffffffff97a043d0 do_syscall_64
+    ffffffff97a03981 syscall_slow_exit_work
+    ffffffff97bc1a3a __audit_syscall_exit
+    ffffffff97d3b9b2 path_put
+    ffffffff97d4b9f5 dput
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b7bd3e run_timer_softirq
+    ffffffff97b7aeed call_timer_fn
+    ffffffff97b08c8d __queue_work
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           mysqld
+    target:          rcu_sched
+        1255948
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b6d1ef rcu_core
+    ffffffff97b3aed7 swake_up_one
+    ffffffff97b3ae63 swake_up_locked.part.3
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/2
+    target:          sssd_nss
+        1889322
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b87fb5 posix_timer_fn
+    ffffffff97b87f67 posix_timer_event
+    ffffffff97afd8da send_sigqueue
+    ffffffff97afb0f5 signal_wake_up_state
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/14
+    target:          kworker/0:0
+        1911560
+
+    ffffffff98400242 ret_from_fork
+    ffffffff97b0f906 kthread
+    ffffffff97d11ed6 khugepaged
+    ffffffff97c8729d lru_add_drain_all
+    ffffffff97b08f64 queue_work_on
+    ffffffff97b08c8d __queue_work
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           khugepaged
+    target:          kworker/1:3
+        2151201
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b7bb5f run_timer_softirq
+    ffffffff97b7aeed call_timer_fn
+    ffffffff97b08c8d __queue_work
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/1
+    target:          kworker/12:0
+        2382962
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b7bd3e run_timer_softirq
+    ffffffff97b7aeed call_timer_fn
+    ffffffff97b08c8d __queue_work
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/12
+    target:          kworker/12:0
+        2629471
+
+    ffffffff98400242 ret_from_fork
+    ffffffff97b0f906 kthread
+    ffffffff97b09e40 worker_thread
+    ffffffff97b09777 process_one_work
+    ffffffff97c9aef8 vmstat_shepherd
+    ffffffff97b09506 queue_delayed_work_on
+    ffffffff97b08c8d __queue_work
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           kworker/0:0
+    target:          sedispatch
+        2753688
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/9
+    target:          kworker/1:3
+        3003292
+
+    ffffffff98400242 ret_from_fork
+    ffffffff97b0f906 kthread
+    ffffffff97d11ed6 khugepaged
+    ffffffff97c8729d lru_add_drain_all
+    ffffffff97b08f64 queue_work_on
+    ffffffff97b08c8d __queue_work
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           khugepaged
+    target:          kworker/9:0
+        3072049
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b7bd3e run_timer_softirq
+    ffffffff97b7aeed call_timer_fn
+    ffffffff97b08c8d __queue_work
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/9
+    target:          kworker/0:0
+        3135239
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff99618267 start_kernel
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b7bd3e run_timer_softirq
+    ffffffff97b7aeed call_timer_fn
+    ffffffff97b08c8d __queue_work
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/0
+    target:          rcu_sched
+        3231956
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b6d052 rcu_core
+    ffffffff97b3aed7 swake_up_one
+    ffffffff97b3ae63 swake_up_locked.part.3
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/2
+    target:          watchdog/6
+        3767291
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/6
+    target:          watchdog/4
+        3999878
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/4
+    target:          watchdog/5
+        3999907
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/5
+    target:          watchdog/0
+        3999917
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff99618267 start_kernel
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/0
+    target:          watchdog/3
+        3999948
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/3
+    target:          watchdog/9
+        3999968
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/9
+    target:          watchdog/2
+        3999974
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/2
+    target:          watchdog/1
+        3999979
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/1
+    target:          watchdog/12
+        3999994
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/12
+    target:          watchdog/10
+        4000001
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/10
+    target:          watchdog/7
+        4000035
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/7
+    target:          watchdog/11
+        4000053
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/11
+    target:          watchdog/8
+        4000089
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/8
+    target:          watchdog/13
+        4000172
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/13
+    target:          watchdog/15
+        4000182
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/15
+    target:          gmain
+        4000193
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/1
+    target:          watchdog/14
+        4000257
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97bd4743 watchdog_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/14
+    target:          kworker/u64:1
+        4000446
+
+    ffffffff984000ad entry_SYSCALL_64_after_hwframe
+    ffffffff97a042bb do_syscall_64
+    ffffffff97d31b8f ksys_write
+    ffffffff97d31915 vfs_write
+    ffffffff97fa37d0 tty_write
+    ffffffff97fa776a n_tty_write
+    ffffffff97faef05 pty_write
+    ffffffff97b08f64 queue_work_on
+    ffffffff97b08c8d __queue_work
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           sshd
+    target:          kworker/10:3
+        4834988
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b7bb5f run_timer_softirq
+    ffffffff97b7aeed call_timer_fn
+    ffffffff97b08c8d __queue_work
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/10
+    target:          containerd
+        5657234
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/2
+    target:          NetworkManager
+        5758827
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98400a8f ret_from_intr
+    ffffffff98401e7f do_IRQ
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff981c3763 net_rx_action
+    ffffffff981c326d __napi_poll
+    ffffffffc01db2db rtl8169_poll
+    ffffffff981c2a0a napi_gro_receive
+    ffffffff981c1fad netif_receive_skb_internal
+    ffffffff981c1e8b __netif_receive_skb_core
+    ffffffff98331a7e packet_rcv
+    ffffffff9819eeb7 sock_def_readable
+    ffffffff97b3a5cc __wake_up_common_lock
+    ffffffff97b3a43a __wake_up_common
+    ffffffff97d83d43 ep_poll_callback
+    ffffffff97b3a5cc __wake_up_common_lock
+    ffffffff97b3a43a __wake_up_common
+    ffffffff97d47814 pollwake
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/9
+    target:          mysqld
+        5999483
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/1
+    target:          mysqld
+        6001604
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/10
+    target:          tuned
+        6001996
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/3
+    target:          tuned
+        6002118
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/10
+    target:          tuned
+        6007500
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/12
+    target:          in:imjournal
+        6007605
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/10
+    target:          containerd
+        6307761
+
+    ffffffff984000ad entry_SYSCALL_64_after_hwframe
+    ffffffff97a042bb do_syscall_64
+    ffffffff97b93e35 __x64_sys_futex
+    ffffffff97b93556 do_futex
+    ffffffff97b90e50 futex_wake
+    ffffffff97b1d5e4 wake_up_q
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           containerd
+    target:          containerd
+        6389787
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/14
+    target:          mysqld
+        6398595
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/8
+    target:          mysqld
+        6504579
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/5
+    target:          mysqld
+        6620337
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/7
+    target:          redis-server
+        6620361
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/2
+    target:          xfsaild/dm-0
+        6626053
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b7bbd8 run_timer_softirq
+    ffffffff97b7aeed call_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/8
+    target:          xfsaild/dm-2
+        6675110
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026c4 smp_apic_timer_interrupt
+    ffffffff97af27a7 irq_exit
+    ffffffff986000d7 __softirqentry_text_start
+    ffffffff97b7bbd8 run_timer_softirq
+    ffffffff97b7aeed call_timer_fn
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/12
+    target:          wakeuptime
+        6675681
+
+    ffffffff98400242 ret_from_fork
+    ffffffff97b0f906 kthread
+    ffffffff97b09e40 worker_thread
+    ffffffff97b09777 process_one_work
+    ffffffff97fac737 flush_to_ldisc
+    ffffffff97facd9e tty_port_default_receive_buf
+    ffffffff97fa9897 n_tty_receive_buf_common
+    ffffffff97fa8b14 n_tty_receive_char_special
+    ffffffff97fa7de6 n_tty_receive_signal_char
+    ffffffff97fa7b00 isig
+    ffffffff97fa6d28 __isig
+    ffffffff97afcf10 kill_pgrp
+    ffffffff97afcea5 __kill_pgrp_info
+    ffffffff97afc85a do_send_sig_info
+    ffffffff97afbd44 __send_signal
+    ffffffff97afb0f5 signal_wake_up_state
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           kworker/u64:1
+    target:          mysqld
+        6705908
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/4
+    target:          mysqld
+        11506054
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/15
+    target:          mysqld
+        12508815
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/12
+    target:          mysqld
+        13125614
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff99618267 start_kernel
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/0
+    target:          mysqld
+        18627610
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/14
+    target:          mysqld
+        19629512
+
+    ffffffff97a00107 secondary_startup_64_no_verify
+    ffffffff97a5929b start_secondary
+    ffffffff97b22c7f cpu_startup_entry
+    ffffffff97b22a84 do_idle
+    ffffffff9814393c cpuidle_enter
+    ffffffff981435fb cpuidle_enter_state
+    ffffffff98401c4f apic_timer_interrupt
+    ffffffff984026ba smp_apic_timer_interrupt
+    ffffffff97b7e0f0 hrtimer_interrupt
+    ffffffff97b7d920 __hrtimer_run_queues
+    ffffffff97b7d6ee hrtimer_wakeup
+    ffffffff97b1d186 try_to_wake_up
+    ffffffff97b1c106 ttwu_do_wakeup
+    ffffffff97c0dde2 bpf_trace_run1
+    ffffffffc01457c2 cleanup_module
+    ffffffff97c0fe0e bpf_get_stackid_raw_tp
+    waker:           swapper/2
+        22516024
+
+Detaching...
