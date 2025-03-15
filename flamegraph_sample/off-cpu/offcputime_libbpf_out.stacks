@@ -1,0 +1,2498 @@
+Tracing off-CPU time (us) of all threads... Hit Ctrl-C to end.
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    exit_to_usermode_loop
+    prepare_exit_to_usermode
+    swapgs_restore_regs_and_return_to_usermode
+    -                stress (54223)
+        34
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    read_events
+    do_io_getevents
+    __x64_sys_io_getevents
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    syscall
+    -                mysqld (1542)
+        8503606
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    io_schedule
+    rq_qos_wait
+    wbt_wait
+    __rq_qos_throttle
+    blk_mq_make_request
+    generic_make_request
+    submit_bio
+    iomap_writepage_map
+    write_cache_pages
+    iomap_writepages
+    xfs_vm_writepages
+    do_writepages
+    __writeback_single_inode
+    writeback_sb_inodes
+    wb_writeback
+    wb_workfn
+    process_one_work
+    worker_thread
+    kthread
+    ret_from_fork
+    -                kworker/kworker (54196)
+        2003945
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    exit_to_usermode_loop
+    prepare_exit_to_usermode
+    swapgs_restore_regs_and_return_to_usermode
+    -                stress (54223)
+        41
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    ep_poll
+    do_epoll_wait
+    __x64_sys_epoll_wait
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    epoll_wait
+    -                mysqld (1586)
+        8007914
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    read_events
+    do_io_getevents
+    __x64_sys_io_getevents
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    syscall
+    -                mysqld (1539)
+        8503119
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    do_nanosleep
+    hrtimer_nanosleep
+    __x64_sys_nanosleep
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54230)
+        12076
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    io_schedule
+    rq_qos_wait
+    wbt_wait
+    __rq_qos_throttle
+    blk_mq_make_request
+    generic_make_request
+    submit_bio
+    iomap_submit_ioend.isra.38
+    iomap_writepage_map
+    write_cache_pages
+    iomap_writepages
+    xfs_vm_writepages
+    do_writepages
+    __writeback_single_inode
+    writeback_sb_inodes
+    __writeback_inodes_wb
+    wb_writeback
+    wb_workfn
+    process_one_work
+    worker_thread
+    kthread
+    ret_from_fork
+    -                kworker/kworker (54196)
+        3219
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    pthread_cond_timedwait@@GLIBC_2.3.2
+    -                tuned (1507)
+        1193
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    pthread_cond_timedwait@@GLIBC_2.3.2
+    -                mysqld (1555)
+        9017139
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    io_schedule
+    __lock_page_killable
+    filemap_fault
+    __xfs_filemap_fault
+    __do_fault
+    do_fault
+    __handle_mm_fault
+    handle_mm_fault
+    __do_page_fault
+    do_page_fault
+    page_fault
+    -                true (54232)
+        18
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    do_nanosleep
+    hrtimer_nanosleep
+    __x64_sys_nanosleep
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    nanosleep
+    -                mysqld (1581)
+        8001447
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    do_nanosleep
+    hrtimer_nanosleep
+    __x64_sys_nanosleep
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54228)
+        12068
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    xlog_wait_on_iclog
+    xfs_fs_sync_fs
+    iterate_supers
+    ksys_sync
+    __x64_sys_sync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54224)
+        44771
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    do_nanosleep
+    hrtimer_nanosleep
+    __x64_sys_nanosleep
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54224)
+        24166
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    sigsuspend
+    __x64_sys_rt_sigsuspend
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                zsh (54231)
+        1221
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    runtime.futex.abi0
+    runtime.notesleep
+    runtime.stopm
+    runtime.findRunnable
+    runtime.schedule
+    runtime.park_m
+    runtime.mcall
+    runtime.gopark
+    runtime.selectgo
+    github.com/containerd/containerd/gc/scheduler.(*gcScheduler).run
+    github.com/containerd/containerd/gc/scheduler.init.0.func1.1
+    runtime.goexit.abi0
+    -                containecontain (52656)
+        2700533
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                watchdogwatchdo (16)
+        4000271
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    io_schedule
+    rq_qos_wait
+    wbt_wait
+    __rq_qos_throttle
+    blk_mq_make_request
+    generic_make_request
+    submit_bio
+    xlog_state_release_iclog
+    xfs_log_force
+    xfs_fs_sync_fs
+    iterate_supers
+    ksys_sync
+    __x64_sys_sync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54228)
+        34429
+
+    -                kworker/kworker (37870)
+        7417089
+
+    -                kworker/kworker (51722)
+        7763918
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    poll_schedule_timeout.constprop.14
+    do_sys_poll
+    __x64_sys_poll
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    poll
+    -                NetworkMNetwork (1200)
+        6000054
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    xlog_wait_on_iclog
+    xfs_fs_sync_fs
+    iterate_supers
+    ksys_sync
+    __x64_sys_sync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54228)
+        68836
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    io_schedule
+    rq_qos_wait
+    wbt_wait
+    __rq_qos_throttle
+    blk_mq_make_request
+    generic_make_request
+    submit_bio
+    iomap_writepage_map
+    write_cache_pages
+    iomap_writepages
+    xfs_vm_writepages
+    do_writepages
+    __writeback_single_inode
+    writeback_sb_inodes
+    __writeback_inodes_wb
+    wb_writeback
+    wb_workfn
+    process_one_work
+    worker_thread
+    kthread
+    ret_from_fork
+    -                kworker/kworker (54196)
+        1915163
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    pthread_cond_timedwait@@GLIBC_2.3.2
+    -                mysqld (1583)
+        5000365
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    read_events
+    do_io_getevents
+    __x64_sys_io_getevents
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    syscall
+    -                mysqld (1540)
+        9003255
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                watchdogwatchdo (82)
+        4000179
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    preempt_schedule_common
+    _cond_resched
+    iomap_write_actor
+    iomap_apply
+    iomap_file_buffered_write
+    xfs_file_buffered_aio_write
+    new_sync_write
+    vfs_write
+    ksys_write
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54226)
+        7658
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    read_events
+    do_io_getevents
+    __x64_sys_io_getevents
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    syscall
+    [unknown]
+    -                mysqld (1541)
+        8503575
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                watchdogwatchdo (22)
+        4000260
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    do_nanosleep
+    hrtimer_nanosleep
+    __x64_sys_nanosleep
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    nanosleep
+    -                offcputioffcput (54221)
+        9065202
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    pthread_cond_timedwait@@GLIBC_2.3.2
+    -                mysqld (1553)
+        9017121
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    read_events
+    do_io_getevents
+    __x64_sys_io_getevents
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    syscall
+    -                mysqld (1544)
+        8502437
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    pipe_wait
+    pipe_read
+    new_sync_read
+    vfs_read
+    ksys_read
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    read
+    -                zsh (51795)
+        422
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                watchdogwatchdo (34)
+        4000214
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_timeout
+    wait_for_completion
+    flush_work
+    xlog_cil_force_lsn
+    xfs_log_force
+    xfs_fs_sync_fs
+    iterate_supers
+    ksys_sync
+    __x64_sys_sync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54228)
+        1941
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    do_nanosleep
+    hrtimer_nanosleep
+    __x64_sys_nanosleep
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54225)
+        24063
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    io_schedule
+    wait_on_page_bit
+    __filemap_fdatawait_range
+    filemap_fdatawait_keep_errors
+    sync_inodes_sb
+    iterate_supers
+    ksys_sync
+    __x64_sys_sync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54228)
+        1697794
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    pthread_cond_timedwait@@GLIBC_2.3.2
+    -                mysqld (1549)
+        8001193
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    preempt_schedule_common
+    _cond_resched
+    truncate_inode_pages_range
+    evict
+    __dentry_kill
+    dentry_kill
+    dput.part.34
+    __fput
+    task_work_run
+    exit_to_usermode_loop
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54230)
+        161
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    rwsem_down_write_slowpath
+    sync_inodes_sb
+    iterate_supers
+    ksys_sync
+    __x64_sys_sync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54228)
+        1509542
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    exit_to_usermode_loop
+    prepare_exit_to_usermode
+    swapgs_restore_regs_and_return_to_usermode
+    -                stress (54229)
+        12
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    rwsem_down_read_slowpath
+    xfs_map_blocks
+    iomap_writepage_map
+    write_cache_pages
+    iomap_writepages
+    xfs_vm_writepages
+    do_writepages
+    __writeback_single_inode
+    writeback_sb_inodes
+    __writeback_inodes_wb
+    wb_writeback
+    wb_workfn
+    process_one_work
+    worker_thread
+    kthread
+    ret_from_fork
+    -                kworker/kworker (54196)
+        46
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                watchdogwatchdo (58)
+        4000456
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    poll_schedule_timeout.constprop.14
+    do_sys_poll
+    __x64_sys_poll
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    poll
+    -                gmain (1207)
+        4000053
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    exit_to_usermode_loop
+    prepare_exit_to_usermode
+    swapgs_restore_regs_and_return_to_usermode
+    -                stress (54227)
+        28
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    exit_to_usermode_loop
+    prepare_exit_to_usermode
+    swapgs_restore_regs_and_return_to_usermode
+    -                stress (54223)
+        39
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    preempt_schedule_common
+    _cond_resched
+    mempool_alloc
+    bio_alloc_bioset
+    bio_clone_fast
+    bio_split
+    blk_queue_split
+    blk_mq_make_request
+    generic_make_request
+    submit_bio
+    iomap_writepage_map
+    write_cache_pages
+    iomap_writepages
+    xfs_vm_writepages
+    do_writepages
+    __writeback_single_inode
+    writeback_sb_inodes
+    __writeback_inodes_wb
+    wb_writeback
+    wb_workfn
+    process_one_work
+    worker_thread
+    kthread
+    ret_from_fork
+    -                kworker/kworker (54196)
+        43
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    read_events
+    do_io_getevents
+    __x64_sys_io_getevents
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    syscall
+    [unknown]
+    -                mysqld (1548)
+        8502822
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    wb_wait_for_completion
+    sync_inodes_sb
+    iterate_supers
+    ksys_sync
+    __x64_sys_sync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54228)
+        1718006
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    read_events
+    do_io_getevents
+    __x64_sys_io_getevents
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    syscall
+    [unknown]
+    -                mysqld (1545)
+        8503570
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    exit_to_usermode_loop
+    prepare_exit_to_usermode
+    swapgs_restore_regs_and_return_to_usermode
+    -                stress (54223)
+        29
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    rwsem_down_write_slowpath
+    sync_inodes_sb
+    iterate_supers
+    ksys_sync
+    __x64_sys_sync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54224)
+        1564264
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    preempt_schedule_common
+    _cond_resched
+    clear_huge_page
+    do_huge_pmd_anonymous_page
+    __handle_mm_fault
+    handle_mm_fault
+    __do_page_fault
+    do_page_fault
+    page_fault
+    -                stress (54229)
+        260
+
+    -                kworker/kworker (428)
+        3398671
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule_idle
+    do_idle
+    cpu_startup_entry
+    start_secondary
+    secondary_startup_64_no_verify
+    -                swapper/swapper (1)
+        73212
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    bit_wait
+    __wait_on_bit
+    __inode_wait_for_writeback
+    inode_wait_for_writeback
+    evict
+    __dentry_kill
+    dentry_kill
+    dput.part.34
+    __fput
+    task_work_run
+    exit_to_usermode_loop
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54230)
+        1482576
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    rcu_gp_kthread
+    kthread
+    ret_from_fork
+    -                rcu_schercu_sch (11)
+        13683
+
+    -                stress (54228)
+        91040
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                watchdogwatchdo (52)
+        4000329
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                watchdogwatchdo (40)
+        4000334
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    do_futex_wait
+    -                tuned (1488)
+        8001227
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    do_nanosleep
+    hrtimer_nanosleep
+    __x64_sys_nanosleep
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54226)
+        24092
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule_idle
+    do_idle
+    cpu_startup_entry
+    start_secondary
+    secondary_startup_64_no_verify
+    -                swapper/swapper (13)
+        267293
+
+    -                kworker/kworker (34202)
+        5998291
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                ksoftirqksoftir (18)
+        1709844
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_timeout
+    xfsaild
+    kthread
+    ret_from_fork
+    -                xfsaild/xfsaild (777)
+        9126136
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    pthread_cond_timedwait@@GLIBC_2.3.2
+    -                mysqld (1591)
+        9118962
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                watchdogwatchdo (46)
+        4000236
+
+    -                kworker/kworker (145)
+        6063
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    exit_to_usermode_loop
+    prepare_exit_to_usermode
+    swapgs_restore_regs_and_return_to_usermode
+    __strcmp_avx2
+    -                offcputioffcput (54221)
+        18
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    exit_to_usermode_loop
+    prepare_exit_to_usermode
+    swapgs_restore_regs_and_return_to_usermode
+    -                stress (54223)
+        9
+
+    -                kworker/kworker (52633)
+        6350804
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    runtime.futex.abi0
+    runtime.notetsleep_internal
+    runtime.notetsleep
+    runtime.sysmon
+    runtime.mstart1
+    runtime.mstart0
+    runtime.mstart.abi0
+    [unknown]
+    -                containecontain (52654)
+        8687679
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    preempt_schedule_common
+    _cond_resched
+    iomap_write_actor
+    iomap_apply
+    iomap_file_buffered_write
+    xfs_file_buffered_aio_write
+    new_sync_write
+    vfs_write
+    ksys_write
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54230)
+        4106
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    ep_poll
+    do_epoll_wait
+    __x64_sys_epoll_pwait
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    runtime/internal/syscall.Syscall6
+    runtime.netpoll
+    runtime.findRunnable
+    runtime.schedule
+    runtime.park_m
+    runtime.mcall
+    runtime.gopark
+    runtime.chanrecv
+    runtime.chanrecv2
+    k8s.io/klog/v2.(*loggingT).flushDaemon
+    k8s.io/klog/v2.init.0.func1
+    runtime.goexit.abi0
+    -                containecontain (52656)
+        156563
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    ep_poll
+    do_epoll_wait
+    __x64_sys_epoll_pwait
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    runtime/internal/syscall.Syscall6
+    runtime.netpoll
+    runtime.findRunnable
+    runtime.schedule
+    runtime.park_m
+    runtime.mcall
+    runtime.gopark
+    runtime.selectgo
+    github.com/containerd/containerd/gc/scheduler.(*gcScheduler).run
+    github.com/containerd/containerd/gc/scheduler.init.0.func1.1
+    runtime.goexit.abi0
+    -                containecontain (52656)
+        6000050
+
+    -                kworker/kworker (27006)
+        4671296
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    io_schedule
+    wait_on_page_bit
+    __filemap_fdatawait_range
+    filemap_fdatawait_keep_errors
+    sync_inodes_sb
+    iterate_supers
+    ksys_sync
+    __x64_sys_sync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54224)
+        184845
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                watchdogwatchdo (100)
+        4000217
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    ep_poll
+    do_epoll_wait
+    __x64_sys_epoll_pwait
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    runtime/internal/syscall.Syscall6
+    runtime.netpoll
+    runtime.findRunnable
+    runtime.schedule
+    runtime.park_m
+    runtime.mcall
+    runtime.gopark
+    time.Sleep
+    github.com/containerd/containerd/runtime/restart/monitor.(*monitor).run
+    github.com/containerd/containerd/runtime/restart/monitor.init.0.func1.2
+    runtime.goexit.abi0
+    -                containecontain (52664)
+        245359
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    do_nanosleep
+    hrtimer_nanosleep
+    __x64_sys_nanosleep
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54227)
+        12082
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    ep_poll
+    do_epoll_wait
+    __x64_sys_epoll_pwait
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    runtime/internal/syscall.Syscall6
+    runtime.netpoll
+    runtime.findRunnable
+    runtime.schedule
+    runtime.park_m
+    runtime.mcall
+    runtime.gopark
+    runtime.selectgo
+    github.com/containerd/containerd/gc/scheduler.(*gcScheduler).run
+    github.com/containerd/containerd/gc/scheduler.init.0.func1.1
+    runtime.goexit.abi0
+    -                containecontain (52664)
+        2438720
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    do_wait
+    kernel_wait4
+    __do_sys_wait4
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54222)
+        5409087
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    ep_poll
+    do_epoll_wait
+    __x64_sys_epoll_wait
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    epoll_wait
+    [unknown]
+    [unknown]
+    [unknown]
+    [unknown]
+    -                sssd_be (1182)
+        1405899
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    rwsem_down_read_slowpath
+    xfs_map_blocks
+    iomap_writepage_map
+    write_cache_pages
+    iomap_writepages
+    xfs_vm_writepages
+    do_writepages
+    __writeback_single_inode
+    writeback_sb_inodes
+    wb_writeback
+    wb_workfn
+    process_one_work
+    worker_thread
+    kthread
+    ret_from_fork
+    -                kworker/kworker (54196)
+        56
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    exit_to_usermode_loop
+    prepare_exit_to_usermode
+    swapgs_restore_regs_and_return_to_usermode
+    -                stress (54227)
+        28
+
+    -                kworker/kworker (53462)
+        7533135
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    ep_poll
+    do_epoll_wait
+    __x64_sys_epoll_wait
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    epoll_wait
+    [unknown]
+    [unknown]
+    [unknown]
+    [unknown]
+    -                sssd_nsssssd_ns (1186)
+        6307602
+
+    -                kworker/kworker (53728)
+        6494453
+
+    -                kworker/kworker (52287)
+        6350329
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    do_nanosleep
+    hrtimer_nanosleep
+    __x64_sys_nanosleep
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    runtime.usleep.abi0
+    runtime.sysmon
+    runtime.mstart1
+    runtime.mstart0
+    runtime.mstart.abi0
+    [unknown]
+    -                containecontain (52654)
+        408755
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                ksoftirqksoftir (30)
+        32958
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    preempt_schedule_common
+    _cond_resched
+    write_cache_pages
+    iomap_writepages
+    xfs_vm_writepages
+    do_writepages
+    __writeback_single_inode
+    writeback_sb_inodes
+    __writeback_inodes_wb
+    wb_writeback
+    wb_workfn
+    process_one_work
+    worker_thread
+    kthread
+    ret_from_fork
+    -                kworker/kworker (54196)
+        15
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    poll_schedule_timeout.constprop.14
+    do_sys_poll
+    __x64_sys_poll
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    poll
+    -                tuned (1509)
+        8123735
+
+    -                kworker/kworker (569)
+        4602517
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule_idle
+    do_idle
+    cpu_startup_entry
+    start_secondary
+    secondary_startup_64_no_verify
+    -                swapper/swapper (11)
+        281254
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    io_schedule
+    rq_qos_wait
+    wbt_wait
+    __rq_qos_throttle
+    blk_mq_make_request
+    generic_make_request
+    submit_bio
+    iomap_submit_ioend.isra.38
+    xfs_vm_writepages
+    do_writepages
+    __writeback_single_inode
+    writeback_sb_inodes
+    wb_writeback
+    wb_workfn
+    process_one_work
+    worker_thread
+    kthread
+    ret_from_fork
+    -                kworker/kworker (54196)
+        1802
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    exit_to_usermode_loop
+    prepare_exit_to_usermode
+    swapgs_restore_regs_and_return_to_usermode
+    hashmap_insert
+    -                offcputioffcput (54221)
+        30
+
+    -                kworker/kworker (39837)
+        3714313
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    pthread_cond_timedwait@@GLIBC_2.3.2
+    -                mysqld (1578)
+        9002009
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    poll_schedule_timeout.constprop.14
+    do_sys_poll
+    __x64_sys_poll
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    poll
+    -                tuned (1507)
+        8123619
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                watchdogwatchdo (76)
+        4000205
+
+    -                kworker/kworker (429)
+        17599
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                ksoftirqksoftir (90)
+        1619170
+
+    -                kworker/kworker (33166)
+        8191770
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    pthread_cond_timedwait@@GLIBC_2.3.2
+    -                mysqld (1577)
+        9002074
+
+    -                kworker/kworker (33869)
+        5582264
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    sigsuspend
+    __x64_sys_rt_sigsuspend
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    sigsuspend
+    -                zsh (51795)
+        5411401
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                watchdogwatchdo (94)
+        4000432
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    do_nanosleep
+    hrtimer_nanosleep
+    __x64_sys_nanosleep
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54229)
+        12090
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    runtime.futex.abi0
+    runtime.notesleep
+    runtime.stopm
+    runtime.findRunnable
+    runtime.schedule
+    runtime.park_m
+    runtime.mcall
+    runtime.gopark
+    time.Sleep
+    github.com/containerd/containerd/runtime/restart/monitor.(*monitor).run
+    github.com/containerd/containerd/runtime/restart/monitor.init.0.func1.2
+    runtime.goexit.abi0
+    -                containecontain (52653)
+        228328
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    pthread_cond_timedwait@@GLIBC_2.3.2
+    -                mysqld (1556)
+        9117298
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    runtime.futex.abi0
+    runtime.notesleep
+    runtime.stopm
+    runtime.findRunnable
+    runtime.schedule
+    runtime.park_m
+    runtime.mcall
+    runtime.gopark
+    time.Sleep
+    github.com/containerd/containerd/runtime/restart/monitor.(*monitor).run
+    github.com/containerd/containerd/runtime/restart/monitor.init.0.func1.2
+    runtime.goexit.abi0
+    -                containecontain (52664)
+        2947475
+
+    -                kworker/kworker (53727)
+        6629664
+
+    -                kworker/kworker (391)
+        4670382
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_timeout
+    wait_for_completion
+    flush_work
+    lru_add_drain_all
+    khugepaged
+    kthread
+    ret_from_fork
+    -                khugepagkhugepa (134)
+        919
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    wb_wait_for_completion
+    sync_inodes_sb
+    iterate_supers
+    ksys_sync
+    __x64_sys_sync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54224)
+        3502784
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    do_nanosleep
+    hrtimer_nanosleep
+    __x64_sys_nanosleep
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54223)
+        24122
+
+    -                kworker/kworker (54198)
+        5167570
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_timeout
+    wait_for_completion
+    flush_work
+    xlog_cil_force_lsn
+    xfs_log_force
+    xfs_fs_sync_fs
+    iterate_supers
+    ksys_sync
+    __x64_sys_sync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54224)
+        1150
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    poll_schedule_timeout.constprop.14
+    do_select
+    core_sys_select
+    kern_select
+    __x64_sys_select
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    select
+    -                sshd (51730)
+        149878
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    read_events
+    do_io_getevents
+    __x64_sys_io_getevents
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    syscall
+    [unknown]
+    -                mysqld (1547)
+        8502841
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    preempt_schedule_common
+    _cond_resched
+    truncate_inode_pages_range
+    evict
+    __dentry_kill
+    dentry_kill
+    dput.part.34
+    __fput
+    task_work_run
+    exit_to_usermode_loop
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54226)
+        46
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    poll_schedule_timeout.constprop.14
+    do_select
+    core_sys_select
+    kern_select
+    __x64_sys_select
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    select
+    -                sshd (51794)
+        5415191
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    exit_to_usermode_loop
+    prepare_exit_to_usermode
+    swapgs_restore_regs_and_return_to_usermode
+    -                stress (54226)
+        14
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                watchdogwatchdo (64)
+        4000140
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    io_schedule
+    rq_qos_wait
+    wbt_wait
+    __rq_qos_throttle
+    blk_mq_make_request
+    generic_make_request
+    submit_bio
+    xlog_state_release_iclog
+    xfs_log_force
+    xfs_fs_sync_fs
+    iterate_supers
+    ksys_sync
+    __x64_sys_sync
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54224)
+        20798
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule_idle
+    do_idle
+    cpu_startup_entry
+    start_secondary
+    secondary_startup_64_no_verify
+    -                swapper/swapper (12)
+        41344
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_timeout
+    wait_for_completion
+    flush_work
+    n_tty_poll
+    tty_poll
+    do_select
+    core_sys_select
+    kern_select
+    __x64_sys_select
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    select
+    -                sshd (51730)
+        144
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                ksoftirqksoftir (42)
+        3247211
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    runtime.futex.abi0
+    runtime.notesleep
+    runtime.stopm
+    runtime.findRunnable
+    runtime.schedule
+    runtime.park_m
+    runtime.mcall
+    runtime.gopark
+    runtime.selectgo
+    github.com/containerd/containerd/gc/scheduler.(*gcScheduler).run
+    github.com/containerd/containerd/gc/scheduler.init.0.func1.1
+    runtime.goexit.abi0
+    -                containecontain (52664)
+        3210370
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    preempt_schedule_common
+    _cond_resched
+    write_cache_pages
+    iomap_writepages
+    xfs_vm_writepages
+    do_writepages
+    __writeback_single_inode
+    writeback_sb_inodes
+    wb_writeback
+    wb_workfn
+    process_one_work
+    worker_thread
+    kthread
+    ret_from_fork
+    -                kworker/kworker (54196)
+        5609
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    ep_poll
+    do_epoll_wait
+    __x64_sys_epoll_pwait
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    runtime/internal/syscall.Syscall6
+    runtime.netpoll
+    runtime.findRunnable
+    runtime.schedule
+    runtime.park_m
+    runtime.mcall
+    runtime.gopark
+    runtime.chanrecv
+    runtime.chanrecv2
+    k8s.io/klog/v2.(*loggingT).flushDaemon
+    k8s.io/klog/v2.init.0.func1
+    runtime.goexit.abi0
+    -                containecontain (52664)
+        243659
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_timeout
+    rcu_gp_kthread
+    kthread
+    ret_from_fork
+    -                rcu_schercu_sch (11)
+        679245
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    pthread_cond_timedwait@@GLIBC_2.3.2
+    -                tuned (1509)
+        1311
+
+    -                kworker/kworker (586)
+        6518348
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                ksoftirqksoftir (66)
+        6140382
+
+    -                kworker/kworker (39170)
+        7502904
+
+    -                kworker/kworker (40111)
+        7535686
+
+    -                kworker/kworker (54196)
+        2394347
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    preempt_schedule_common
+    _cond_resched
+    __alloc_pages_nodemask
+    pagecache_get_page
+    grab_cache_page_write_begin
+    iomap_write_begin
+    iomap_write_actor
+    iomap_apply
+    iomap_file_buffered_write
+    xfs_file_buffered_aio_write
+    new_sync_write
+    vfs_write
+    ksys_write
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54230)
+        1638
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                watchdogwatchdo (28)
+        4000211
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    pthread_cond_timedwait@@GLIBC_2.3.2
+    -                mysqld (1554)
+        9119694
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                watchdogwatchdo (70)
+        4000279
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    poll_schedule_timeout.constprop.14
+    do_sys_poll
+    __x64_sys_ppoll
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    ppoll
+    -                in:imjouin:imjo (1699)
+        8108276
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    pthread_cond_timedwait@@GLIBC_2.3.2
+    -                mysqld (1579)
+        5000257
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    schedule_hrtimeout_range_clock
+    poll_schedule_timeout.constprop.14
+    do_sys_poll
+    __x64_sys_poll
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    poll
+    -                zsh (51795)
+        210
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    preempt_schedule_common
+    _cond_resched
+    clear_huge_page
+    do_huge_pmd_anonymous_page
+    __handle_mm_fault
+    handle_mm_fault
+    __do_page_fault
+    do_page_fault
+    page_fault
+    -                stress (54225)
+        424
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    exit_to_usermode_loop
+    prepare_exit_to_usermode
+    swapgs_restore_regs_and_return_to_usermode
+    -                stress (54227)
+        62
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    bit_wait
+    __wait_on_bit
+    __inode_wait_for_writeback
+    inode_wait_for_writeback
+    evict
+    __dentry_kill
+    dentry_kill
+    dput.part.34
+    __fput
+    task_work_run
+    exit_to_usermode_loop
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                stress (54226)
+        447629
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule_idle
+    do_idle
+    cpu_startup_entry
+    start_kernel
+    secondary_startup_64_no_verify
+    -                swapper/swapper (0)
+        161080
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    smpboot_thread_fn
+    kthread
+    ret_from_fork
+    -                watchdogwatchdo (88)
+        4000288
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    pipe_wait
+    pipe_read
+    new_sync_read
+    vfs_read
+    ksys_read
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    -                zsh (54231)
+        145
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    preempt_schedule_common
+    _cond_resched
+    process_one_work
+    worker_thread
+    kthread
+    ret_from_fork
+    -                kworker/kworker (53727)
+        99
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    rwsem_down_read_slowpath
+    down_read_killable
+    __access_remote_vm
+    proc_pid_cmdline_read
+    vfs_read
+    ksys_read
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    read
+    [unknown]
+    -                tuned (1509)
+        65
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    read_events
+    do_io_getevents
+    __x64_sys_io_getevents
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    syscall
+    -                mysqld (1543)
+        8502404
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    read_events
+    do_io_getevents
+    __x64_sys_io_getevents
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    syscall
+    [unknown]
+    -                mysqld (1546)
+        9003161
+
+    __this_module
+    bpf_get_stackid_raw_tp
+    __this_module
+    __this_module
+    bpf_trace_run3
+    __schedule
+    schedule
+    futex_wait_queue_me
+    futex_wait
+    do_futex
+    __x64_sys_futex
+    do_syscall_64
+    entry_SYSCALL_64_after_hwframe
+    pthread_cond_timedwait@@GLIBC_2.3.2
+    -                mysqld (1552)
+        9001988
+
+    -                kworker/kworker (39843)
+        4671261
+
