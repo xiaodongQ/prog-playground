@@ -1,0 +1,52 @@
+Tracing blocked time (us) by user + kernel off-CPU and waker stack... Hit Ctrl-C to end.
+
+    waker:           swapper/5 0
+    b'secondary_startup_64_no_verify'
+    b'start_secondary'
+    b'cpu_startup_entry'
+    b'do_idle'
+    b'cpuidle_enter'
+    b'cpuidle_enter_state'
+    b'apic_timer_interrupt'
+    b'smp_apic_timer_interrupt'
+    b'hrtimer_interrupt'
+    b'__hrtimer_run_queues'
+    b'hrtimer_wakeup'
+    --               --
+    b'finish_task_switch'
+    b'__sched_text_start'
+    b'schedule'
+    b'read_events'
+    b'do_io_getevents'
+    b'__x64_sys_io_getevents'
+    b'do_syscall_64'
+    b'entry_SYSCALL_64_after_hwframe'
+    b'syscall'
+    target:          mysqld 1543
+        500247
+
+    waker:           swapper/5 0
+    b'secondary_startup_64_no_verify'
+    b'start_secondary'
+    b'cpu_startup_entry'
+    b'do_idle'
+    b'cpuidle_enter'
+    b'cpuidle_enter_state'
+    b'apic_timer_interrupt'
+    b'smp_apic_timer_interrupt'
+    b'hrtimer_interrupt'
+    b'__hrtimer_run_queues'
+    b'hrtimer_wakeup'
+    --               --
+    b'finish_task_switch'
+    b'__sched_text_start'
+    b'schedule'
+    b'read_events'
+    b'do_io_getevents'
+    b'__x64_sys_io_getevents'
+    b'do_syscall_64'
+    b'entry_SYSCALL_64_after_hwframe'
+    b'syscall'
+    target:          mysqld 1544
+        500334
+
