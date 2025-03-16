@@ -1,0 +1,14 @@
+
+ Performance counter stats for process id '18213':
+
+              0.57 msec task-clock                #    0.000 CPUs utilized          
+                 3      context-switches          #    0.005 M/sec                  
+                 1      cpu-migrations            #    0.002 M/sec                  
+                 6      page-faults               #    0.011 M/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+
+      12.012889520 seconds time elapsed
+
