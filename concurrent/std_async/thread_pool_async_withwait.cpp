@@ -7,6 +7,7 @@
 #include <functional>
 #include <atomic>
 #include <algorithm>
+#include <future>
 
 using namespace std;
 
@@ -37,13 +38,30 @@ public:
         }
     }
 
-    // 将任务加入线程池
-    void enqueue_task(std::function<void()> &&task) {
+    // 将任务加入线程池，并返回一个 std::future 对象用于获取任务结果
+    template <class F, class... Args>
+    auto enqueue_task(F&& f, Args&&... args) 
+        -> std::future<typename std::result_of<F(Args...)>::type> {
+        using return_type = typename std::result_of<F(Args...)>::type;
+
+        // std::packaged_task 包装一个可调用对象
+        // 将一个可调用对象包装成一个异步任务，并提供一个 std::future 对象来获取任务的返回值。
+        auto task = std::make_shared< std::packaged_task<return_type()> >(
+            // std::bind 将任务函数和参数绑定在一起，
+            // 然后将封装好的 std::packaged_task 包装成一个无参数的 std::function<void()> 并加入任务队列
+            std::bind(std::forward<F>(f), std::forward<Args>(args)...)
+        );
+        
+        // 返回std::packaged_task的 std::future对象，调用者可以通过该对象异步地获取任务的执行结果
+        std::future<return_type> res = task->get_future();
         {
             unique_lock<mutex> lk(task_mtx);
-            tasks.emplace_back(std::move(task));
+            if (stop_)
+                throw std::runtime_error("enqueue on stopped ThreadPool");
+            tasks.emplace_back([task]() { (*task)(); });
         }
         task_cond.notify_one();
+        return res;
     }
 
     // 停止线程池
@@ -71,56 +89,43 @@ private:
     }
 };
 
-// 结果结构体，用于存储计算结果和同步信息
-struct Result {
-    long long sum;
-    std::mutex mtx;
-    int task_count;
-    int task_done_count;
-    std::condition_variable cond;
-    Result() : sum(0), task_count(0), task_done_count(0) {}
-};
-
 // 任务执行函数
-void task_run(const std::vector<int> &data, int start, int end, Result &result) {
+long long task_run(const std::vector<int> &data, int start, int end) {
     long long sum = 0;
     for (auto i = start; i < end; i++) {
         sum += data[i];
     }
-
-    lock_guard<mutex> lk(result.mtx);
-    result.sum += sum;
-    result.task_done_count++;
-    printf("start:%d, end:%d, chunk sum:%lld, total:%lld, done count:%d, task:%d\n",
-           start, end, sum, result.sum, result.task_done_count, result.task_count);
-    if (result.task_done_count == result.task_count) {
-        result.cond.notify_one();
-    }
+    printf("start:%d, end:%d, chunk sum:%lld\n", start, end, sum);
+    return sum;
 }
 
 int main(int argc, char *argv[]) {
     ThreadPool pool(4);
     std::vector<int> data(10000000, 2);
     size_t chunk = data.size() / 8;
-    Result result;
+    long long total_sum = 0;
 
     // 等待信号触发
     cout << "Press any key to start the tasks..." << endl;
     cin.get();
 
+    // 存储所有任务的 future 对象
+    std::vector<std::future<long long>> futures;
+
     // 信号触发后开始逻辑
-    result.task_count = data.size() / chunk + ((data.size() % chunk == 0) ? 0 : 1);
     for (std::vector<int>::size_type i = 0; i < data.size(); i += chunk) {
         int end = std::min(i + chunk, data.size());
-        pool.enqueue_task([=, &result]() { task_run(data, i, end, result); });
+        // 将任务加入线程池并获取 future 对象
+        futures.emplace_back(pool.enqueue_task(task_run, std::ref(data), i, end));
     }
 
-    // 等待所有任务完成
-    {
-        unique_lock<mutex> lock(result.mtx);
-        result.cond.wait(lock);
-        cout << "result: " << result.sum << endl;
+    // 等待所有任务完成并累加结果
+    for (auto& future : futures) {
+        total_sum += future.get();
     }
+
+    // 输出最终结果
+    cout << "result: " << total_sum << endl;
 
     // 停止线程池
     pool.stop();
