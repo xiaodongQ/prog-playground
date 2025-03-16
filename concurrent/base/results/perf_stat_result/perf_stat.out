@@ -1,0 +1,17 @@
+
+ Performance counter stats for process id '69525':
+
+             63.77 msec task-clock                #    0.009 CPUs utilized          
+                22      context-switches          #    0.345 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+             4,575      page-faults               #    0.072 M/sec                  
+       290,443,472      cycles                    #    4.554 GHz                      (66.25%)
+           823,375      stalled-cycles-frontend   #    0.28% frontend cycles idle     (70.28%)
+         2,921,689      stalled-cycles-backend    #    1.01% backend cycles idle      (70.32%)
+       284,414,120      instructions              #    0.98  insn per cycle         
+                                                  #    0.01  stalled cycles per insn  (69.11%)
+        51,552,148      branches                  #  808.389 M/sec                    (75.02%)
+            56,986      branch-misses             #    0.11% of all branches          (78.60%)
+
+       7.009230002 seconds time elapsed
+

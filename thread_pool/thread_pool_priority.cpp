@@ -144,4 +144,5 @@ int main(int argc, char *argv[])
         result.cond.wait(lock);
         cout << "result: " << result.sum << endl;
     }
+    pool.stop();
 }
