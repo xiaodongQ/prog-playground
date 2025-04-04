@@ -1,0 +1,21 @@
+Attaching to pid 45324, Ctrl+C to quit.
+[07:21:41] Top 10 stacks with outstanding allocations:
+	975573 bytes in 3 allocations from stack
+		random_leak_memory(void*)+0x87 [leak_test]
+		start_thread+0xea [libpthread-2.28.so]
+[07:21:46] Top 10 stacks with outstanding allocations:
+	2238288 bytes in 5 allocations from stack
+		random_leak_memory(void*)+0x87 [leak_test]
+		start_thread+0xea [libpthread-2.28.so]
+[07:21:51] Top 10 stacks with outstanding allocations:
+	2238288 bytes in 5 allocations from stack
+		random_leak_memory(void*)+0x87 [leak_test]
+		start_thread+0xea [libpthread-2.28.so]
+[07:21:56] Top 10 stacks with outstanding allocations:
+	2238288 bytes in 5 allocations from stack
+		random_leak_memory(void*)+0x87 [leak_test]
+		start_thread+0xea [libpthread-2.28.so]
+[07:22:01] Top 10 stacks with outstanding allocations:
+	2238288 bytes in 5 allocations from stack
+		[unknown]
+		[unknown]

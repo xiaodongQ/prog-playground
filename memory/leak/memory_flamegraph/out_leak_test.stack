@@ -1,0 +1,7 @@
+Tracing 1 functions for "c:malloc"... Hit Ctrl-C to end.
+
+  b'__libc_malloc'
+  b'start_thread'
+    7
+
+Detaching...
