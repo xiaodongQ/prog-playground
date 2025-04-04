@@ -1,0 +1,206 @@
+desc: --time-unit=B
+cmd: ./leak_test 5
+time_unit: B
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=72712
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=73008
+mem_heap_B=72992
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=74040
+mem_heap_B=74016
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=74064
+mem_heap_B=74020
+mem_heap_extra_B=44
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=74064
+mem_heap_B=74020
+mem_heap_extra_B=44
+mem_stacks_B=0
+heap_tree=detailed
+n3: 74020 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+  n1: 72704 0x400F8B9: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x400F9B9: call_init (dl-init.c:118)
+    n1: 72704 0x400F9B9: _dl_init (dl-init.c:119)
+     n1: 72704 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF0003AA: ???
+        n0: 72704 0x1FFF0003B6: ???
+ n1: 1024 0x59FC60F: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5A0A4BF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x5A09727: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:749)
+    n1: 1024 0x5A088CE: _IO_new_file_xsputn (fileops.c:1248)
+     n1: 1024 0x5A088CE: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1201)
+      n1: 1024 0x59FE992: puts (ioputs.c:40)
+       n0: 1024 0x400D03: main (leak_test.cpp:95)
+ n0: 292 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=6
+#-----------
+time=74088
+mem_heap_B=74016
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=76816
+mem_heap_B=76723
+mem_heap_extra_B=45
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=132536
+mem_heap_B=132426
+mem_heap_extra_B=62
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=132536
+mem_heap_B=132426
+mem_heap_extra_B=62
+mem_stacks_B=0
+heap_tree=detailed
+n3: 132426 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+  n1: 72704 0x400F8B9: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x400F9B9: call_init (dl-init.c:118)
+    n1: 72704 0x400F9B9: _dl_init (dl-init.c:119)
+     n1: 72704 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF0003AA: ???
+        n0: 72704 0x1FFF0003B6: ???
+ n1: 58410 0x400AE0: random_leak_memory(void*) (leak_test.cpp:21)
+  n1: 58410 0x5774179: start_thread (pthread_create.c:479)
+   n0: 58410 0x5A88DC2: clone (clone.S:95)
+ n0: 1312 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=10
+#-----------
+time=188256
+mem_heap_B=76723
+mem_heap_extra_B=45
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=231752
+mem_heap_B=120209
+mem_heap_extra_B=55
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=275248
+mem_heap_B=76723
+mem_heap_extra_B=45
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=300232
+mem_heap_B=101685
+mem_heap_extra_B=67
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=352512
+mem_heap_B=153957
+mem_heap_extra_B=75
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=352512
+mem_heap_B=153957
+mem_heap_extra_B=75
+mem_stacks_B=0
+heap_tree=peak
+n3: 153957 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 79941 0x400AE0: random_leak_memory(void*) (leak_test.cpp:21)
+  n1: 79941 0x5774179: start_thread (pthread_create.c:479)
+   n0: 79941 0x5A88DC2: clone (clone.S:95)
+ n1: 72704 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+  n1: 72704 0x400F8B9: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x400F9B9: call_init (dl-init.c:118)
+    n1: 72704 0x400F9B9: _dl_init (dl-init.c:119)
+     n1: 72704 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF0003AA: ???
+        n0: 72704 0x1FFF0003B6: ???
+ n0: 1312 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=16
+#-----------
+time=404792
+mem_heap_B=101685
+mem_heap_extra_B=67
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=477504
+mem_heap_B=28981
+mem_heap_extra_B=59
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=478536
+mem_heap_B=27957
+mem_heap_extra_B=51
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=478832
+mem_heap_B=27669
+mem_heap_extra_B=43
+mem_stacks_B=0
+heap_tree=empty

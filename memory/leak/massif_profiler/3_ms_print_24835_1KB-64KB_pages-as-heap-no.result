@@ -1,0 +1,133 @@
+[CentOS-root@xdlinux ➜ leak git:(main) ✗ ]$ valgrind --tool=massif --time-unit=B ./leak_test 5
+==24835== Massif, a heap profiler
+...
+分配情况：
+Allocated chunk 1 of size 2707 bytes
+Leaking chunk 1
+Allocated chunk 2 of size 55703 bytes
+Freeing chunk 2
+Allocated chunk 3 of size 43486 bytes
+Freeing chunk 3
+Allocated chunk 4 of size 24962 bytes
+Leaking chunk 4
+Allocated chunk 5 of size 52272 bytes
+Freeing chunk 5
+
+--------------------------------------------------------------------------------
+Command:            ./leak_test 5
+Massif arguments:   --time-unit=B
+ms_print arguments: massif.out.24835
+--------------------------------------------------------------------------------
+
+
+    KB
+150.4^                                                     #######            
+     |                                                     #                  
+     |                                                     #                  
+     |                   @@@@@@@@@                         #                  
+     |                   @                                 #                  
+     |                   @              :::::::            #                  
+     |                   @              :                  #                  
+     |                   @              :          ::::::::#      ::::::::::: 
+     |                   @              :          :       #      :           
+     |                   @              :          :       #      :           
+     |                   @              :          :       #      :           
+     |          :@:::::::@        :::::::      :::::       #      :           
+     |          :@       @        :     :      :   :       #      :           
+     |          :@       @        :     :      :   :       #      :           
+     |          :@       @        :     :      :   :       #      :           
+     |          :@       @        :     :      :   :       #      :           
+     |          :@       @        :     :      :   :       #      :           
+     |          :@       @        :     :      :   :       #      :          :
+     |          :@       @        :     :      :   :       #      :          :
+     |          :@       @        :     :      :   :       #      :          :
+   0 +----------------------------------------------------------------------->KB
+     0                                                                   467.6
+
+Number of snapshots: 20
+ Detailed snapshots: [5, 9, 15 (peak)]
+
+--------------------------------------------------------------------------------
+  n        time(B)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  0              0                0                0             0            0
+  1         72,712           72,712           72,704             8            0
+  2         73,008           73,008           72,992            16            0
+  3         74,040           74,040           74,016            24            0
+  4         74,064           74,064           74,020            44            0
+  5         74,064           74,064           74,020            44            0
+99.94% (74,020B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->98.16% (72,704B) 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+| ->98.16% (72,704B) 0x400F8B9: call_init.part.0 (dl-init.c:72)
+|   ->98.16% (72,704B) 0x400F9B9: call_init (dl-init.c:118)
+|     ->98.16% (72,704B) 0x400F9B9: _dl_init (dl-init.c:119)
+|       ->98.16% (72,704B) 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+|         ->98.16% (72,704B) 0x1: ???
+|           ->98.16% (72,704B) 0x1FFF0003AA: ???
+|             ->98.16% (72,704B) 0x1FFF0003B6: ???
+|               
+->01.38% (1,024B) 0x59FC60F: _IO_file_doallocate (filedoalloc.c:101)
+| ->01.38% (1,024B) 0x5A0A4BF: _IO_doallocbuf (genops.c:347)
+|   ->01.38% (1,024B) 0x5A09727: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:749)
+|     ->01.38% (1,024B) 0x5A088CE: _IO_new_file_xsputn (fileops.c:1248)
+|       ->01.38% (1,024B) 0x5A088CE: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1201)
+|         ->01.38% (1,024B) 0x59FE992: puts (ioputs.c:40)
+|           ->01.38% (1,024B) 0x400D03: main (leak_test.cpp:95)
+|             
+->00.39% (292B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(B)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  6         74,088           74,040           74,016            24            0
+  7         76,816           76,768           76,723            45            0
+  8        132,536          132,488          132,426            62            0
+  9        132,536          132,488          132,426            62            0
+99.95% (132,426B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->54.88% (72,704B) 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+| ->54.88% (72,704B) 0x400F8B9: call_init.part.0 (dl-init.c:72)
+|   ->54.88% (72,704B) 0x400F9B9: call_init (dl-init.c:118)
+|     ->54.88% (72,704B) 0x400F9B9: _dl_init (dl-init.c:119)
+|       ->54.88% (72,704B) 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+|         ->54.88% (72,704B) 0x1: ???
+|           ->54.88% (72,704B) 0x1FFF0003AA: ???
+|             ->54.88% (72,704B) 0x1FFF0003B6: ???
+|               
+->44.09% (58,410B) 0x400AE0: random_leak_memory(void*) (leak_test.cpp:21)
+| ->44.09% (58,410B) 0x5774179: start_thread (pthread_create.c:479)
+|   ->44.09% (58,410B) 0x5A88DC2: clone (clone.S:95)
+|     
+->00.99% (1,312B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(B)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 10        188,256           76,768           76,723            45            0
+ 11        231,752          120,264          120,209            55            0
+ 12        275,248           76,768           76,723            45            0
+ 13        300,232          101,752          101,685            67            0
+ 14        352,512          154,032          153,957            75            0
+ 15        352,512          154,032          153,957            75            0
+99.95% (153,957B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->51.90% (79,941B) 0x400AE0: random_leak_memory(void*) (leak_test.cpp:21)
+| ->51.90% (79,941B) 0x5774179: start_thread (pthread_create.c:479)
+|   ->51.90% (79,941B) 0x5A88DC2: clone (clone.S:95)
+|     
+->47.20% (72,704B) 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+| ->47.20% (72,704B) 0x400F8B9: call_init.part.0 (dl-init.c:72)
+|   ->47.20% (72,704B) 0x400F9B9: call_init (dl-init.c:118)
+|     ->47.20% (72,704B) 0x400F9B9: _dl_init (dl-init.c:119)
+|       ->47.20% (72,704B) 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+|         ->47.20% (72,704B) 0x1: ???
+|           ->47.20% (72,704B) 0x1FFF0003AA: ???
+|             ->47.20% (72,704B) 0x1FFF0003B6: ???
+|               
+->00.85% (1,312B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(B)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 16        404,792          101,752          101,685            67            0
+ 17        477,504           29,040           28,981            59            0
+ 18        478,536           28,008           27,957            51            0
+ 19        478,832           27,712           27,669            43            0

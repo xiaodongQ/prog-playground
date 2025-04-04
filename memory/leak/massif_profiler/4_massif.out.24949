@@ -1,0 +1,910 @@
+desc: --time-unit=B --stacks=yes
+cmd: ./leak_test 5
+time_unit: B
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=17136
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=7456
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=2
+#-----------
+time=91984
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=3904
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=189664
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1776
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=267568
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=343888
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1776
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=417096
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1560
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=534136
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1560
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=625960
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1560
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=709440
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=816960
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=940464
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1248
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=1023224
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1304
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=13
+#-----------
+time=1085192
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1304
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=1178064
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=1250592
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1776
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=1374912
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1776
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=1457720
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1304
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=1532544
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=1588760
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1304
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=1663584
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=1719800
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1304
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=1794624
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=23
+#-----------
+time=1850840
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1304
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=1925664
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=1981880
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1304
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=26
+#-----------
+time=2056704
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=2112920
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1304
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=2187744
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=2243960
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1304
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=2318784
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=2393616
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1296
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=2450112
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1776
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=2534704
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1264
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=2591232
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1776
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=2675824
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1264
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=2732352
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1776
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=2816944
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1264
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=2873472
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1776
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=2958064
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1264
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=3014592
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1776
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=3099184
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1264
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=3155712
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1776
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=3240304
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1264
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=3296832
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1776
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=3381424
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1264
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=3494480
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1776
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=3579088
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1776
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=3691808
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=3804448
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1680
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=3860664
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1496
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=3917040
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1776
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=3973344
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1776
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=4029624
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1304
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=4085840
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1504
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=4142056
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1704
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=4198272
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1728
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=4254496
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1456
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=58
+#-----------
+time=4310712
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1256
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=4367088
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=4423400
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1304
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=4479616
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1456
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=4535832
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1720
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=4592048
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1680
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=4648272
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1456
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=4704488
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1240
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=4760832
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=4817128
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1304
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=68
+#-----------
+time=4873520
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=4929848
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1304
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=4986256
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=71
+#-----------
+time=5042672
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=5098968
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1304
+heap_tree=empty
+#-----------
+snapshot=73
+#-----------
+time=5155392
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=2064
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=5211608
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1256
+heap_tree=empty
+#-----------
+snapshot=75
+#-----------
+time=5308456
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=224
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=5308456
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=224
+heap_tree=detailed
+n1: 72704 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+  n1: 72704 0x400F8B9: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x400F9B9: call_init (dl-init.c:118)
+    n1: 72704 0x400F9B9: _dl_init (dl-init.c:119)
+     n1: 72704 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF0003AA: ???
+        n0: 72704 0x1FFF0003B6: ???
+#-----------
+snapshot=77
+#-----------
+time=5311848
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=2048
+heap_tree=detailed
+n1: 72704 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+  n1: 72704 0x400F8B9: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x400F9B9: call_init (dl-init.c:118)
+    n1: 72704 0x400F9B9: _dl_init (dl-init.c:119)
+     n1: 72704 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF0003AA: ???
+        n0: 72704 0x1FFF0003B6: ???
+#-----------
+snapshot=78
+#-----------
+time=5329240
+mem_heap_B=74016
+mem_heap_extra_B=24
+mem_stacks_B=2112
+heap_tree=detailed
+n3: 74016 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+  n1: 72704 0x400F8B9: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x400F9B9: call_init (dl-init.c:118)
+    n1: 72704 0x400F9B9: _dl_init (dl-init.c:119)
+     n1: 72704 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF0003AA: ???
+        n0: 72704 0x1FFF0003B6: ???
+ n1: 1024 0x59FC60F: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5A0A4BF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x5A09727: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:749)
+    n1: 1024 0x5A088CE: _IO_new_file_xsputn (fileops.c:1248)
+     n1: 1024 0x5A088CE: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1201)
+      n1: 1024 0x59FE992: puts (ioputs.c:40)
+       n0: 1024 0x400D03: main (leak_test.cpp:95)
+ n0: 288 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=79
+#-----------
+time=5399008
+mem_heap_B=91561
+mem_heap_extra_B=39
+mem_stacks_B=848
+heap_tree=empty
+#-----------
+snapshot=80
+#-----------
+time=5399008
+mem_heap_B=91561
+mem_heap_extra_B=39
+mem_stacks_B=848
+heap_tree=detailed
+n4: 91561 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+  n1: 72704 0x400F8B9: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x400F9B9: call_init (dl-init.c:118)
+    n1: 72704 0x400F9B9: _dl_init (dl-init.c:119)
+     n1: 72704 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF0003AA: ???
+        n0: 72704 0x1FFF0003B6: ???
+ n1: 17545 0x400AE0: random_leak_memory(void*) (leak_test.cpp:21)
+  n1: 17545 0x5774179: start_thread (pthread_create.c:479)
+   n0: 17545 0x5A88DC2: clone (clone.S:95)
+ n1: 1024 0x59FC60F: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5A0A4BF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x5A09727: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:749)
+    n1: 1024 0x5A088CE: _IO_new_file_xsputn (fileops.c:1248)
+     n1: 1024 0x5A088CE: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1201)
+      n1: 1024 0x59FE992: puts (ioputs.c:40)
+       n0: 1024 0x400D03: main (leak_test.cpp:95)
+ n0: 288 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=81
+#-----------
+time=5400928
+mem_heap_B=91561
+mem_heap_extra_B=39
+mem_stacks_B=2576
+heap_tree=detailed
+n4: 91561 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+  n1: 72704 0x400F8B9: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x400F9B9: call_init (dl-init.c:118)
+    n1: 72704 0x400F9B9: _dl_init (dl-init.c:119)
+     n1: 72704 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF0003AA: ???
+        n0: 72704 0x1FFF0003B6: ???
+ n1: 17545 0x400AE0: random_leak_memory(void*) (leak_test.cpp:21)
+  n1: 17545 0x5774179: start_thread (pthread_create.c:479)
+   n0: 17545 0x5A88DC2: clone (clone.S:95)
+ n1: 1024 0x59FC60F: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5A0A4BF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x5A09727: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:749)
+    n1: 1024 0x5A088CE: _IO_new_file_xsputn (fileops.c:1248)
+     n1: 1024 0x5A088CE: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1201)
+      n1: 1024 0x59FE992: puts (ioputs.c:40)
+       n0: 1024 0x400D03: main (leak_test.cpp:95)
+ n0: 288 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=82
+#-----------
+time=5406984
+mem_heap_B=91561
+mem_heap_extra_B=39
+mem_stacks_B=4072
+heap_tree=detailed
+n4: 91561 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+  n1: 72704 0x400F8B9: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x400F9B9: call_init (dl-init.c:118)
+    n1: 72704 0x400F9B9: _dl_init (dl-init.c:119)
+     n1: 72704 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF0003AA: ???
+        n0: 72704 0x1FFF0003B6: ???
+ n1: 17545 0x400AE0: random_leak_memory(void*) (leak_test.cpp:21)
+  n1: 17545 0x5774179: start_thread (pthread_create.c:479)
+   n0: 17545 0x5A88DC2: clone (clone.S:95)
+ n1: 1024 0x59FC60F: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x5A0A4BF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x5A09727: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:749)
+    n1: 1024 0x5A088CE: _IO_new_file_xsputn (fileops.c:1248)
+     n1: 1024 0x5A088CE: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1201)
+      n1: 1024 0x59FE992: puts (ioputs.c:40)
+       n0: 1024 0x400D03: main (leak_test.cpp:95)
+ n0: 288 in 2 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=83
+#-----------
+time=5445272
+mem_heap_B=116119
+mem_heap_extra_B=49
+mem_stacks_B=704
+heap_tree=detailed
+n3: 116119 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+  n1: 72704 0x400F8B9: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x400F9B9: call_init (dl-init.c:118)
+    n1: 72704 0x400F9B9: _dl_init (dl-init.c:119)
+     n1: 72704 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF0003AA: ???
+        n0: 72704 0x1FFF0003B6: ???
+ n1: 42103 0x400AE0: random_leak_memory(void*) (leak_test.cpp:21)
+  n1: 42103 0x5774179: start_thread (pthread_create.c:479)
+   n0: 42103 0x5A88DC2: clone (clone.S:95)
+ n0: 1312 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=84
+#-----------
+time=5447024
+mem_heap_B=116119
+mem_heap_extra_B=49
+mem_stacks_B=2248
+heap_tree=detailed
+n3: 116119 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+  n1: 72704 0x400F8B9: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x400F9B9: call_init (dl-init.c:118)
+    n1: 72704 0x400F9B9: _dl_init (dl-init.c:119)
+     n1: 72704 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF0003AA: ???
+        n0: 72704 0x1FFF0003B6: ???
+ n1: 42103 0x400AE0: random_leak_memory(void*) (leak_test.cpp:21)
+  n1: 42103 0x5774179: start_thread (pthread_create.c:479)
+   n0: 42103 0x5A88DC2: clone (clone.S:95)
+ n0: 1312 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=85
+#-----------
+time=5490416
+mem_heap_B=151829
+mem_heap_extra_B=59
+mem_stacks_B=704
+heap_tree=detailed
+n3: 151829 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 77813 0x400AE0: random_leak_memory(void*) (leak_test.cpp:21)
+  n1: 77813 0x5774179: start_thread (pthread_create.c:479)
+   n0: 77813 0x5A88DC2: clone (clone.S:95)
+ n1: 72704 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+  n1: 72704 0x400F8B9: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x400F9B9: call_init (dl-init.c:118)
+    n1: 72704 0x400F9B9: _dl_init (dl-init.c:119)
+     n1: 72704 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF0003AA: ???
+        n0: 72704 0x1FFF0003B6: ???
+ n0: 1312 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=86
+#-----------
+time=5492168
+mem_heap_B=151829
+mem_heap_extra_B=59
+mem_stacks_B=2248
+heap_tree=detailed
+n3: 151829 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 77813 0x400AE0: random_leak_memory(void*) (leak_test.cpp:21)
+  n1: 77813 0x5774179: start_thread (pthread_create.c:479)
+   n0: 77813 0x5A88DC2: clone (clone.S:95)
+ n1: 72704 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+  n1: 72704 0x400F8B9: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x400F9B9: call_init (dl-init.c:118)
+    n1: 72704 0x400F9B9: _dl_init (dl-init.c:119)
+     n1: 72704 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF0003AA: ???
+        n0: 72704 0x1FFF0003B6: ???
+ n0: 1312 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=87
+#-----------
+time=5599232
+mem_heap_B=179579
+mem_heap_extra_B=69
+mem_stacks_B=704
+heap_tree=empty
+#-----------
+snapshot=88
+#-----------
+time=5599232
+mem_heap_B=179579
+mem_heap_extra_B=69
+mem_stacks_B=704
+heap_tree=detailed
+n3: 179579 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 105563 0x400AE0: random_leak_memory(void*) (leak_test.cpp:21)
+  n1: 105563 0x5774179: start_thread (pthread_create.c:479)
+   n0: 105563 0x5A88DC2: clone (clone.S:95)
+ n1: 72704 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+  n1: 72704 0x400F8B9: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x400F9B9: call_init (dl-init.c:118)
+    n1: 72704 0x400F9B9: _dl_init (dl-init.c:119)
+     n1: 72704 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF0003AA: ???
+        n0: 72704 0x1FFF0003B6: ???
+ n0: 1312 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=89
+#-----------
+time=5645656
+mem_heap_B=216564
+mem_heap_extra_B=84
+mem_stacks_B=704
+heap_tree=peak
+n3: 216564 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 142548 0x400AE0: random_leak_memory(void*) (leak_test.cpp:21)
+  n1: 142548 0x5774179: start_thread (pthread_create.c:479)
+   n0: 142548 0x5A88DC2: clone (clone.S:95)
+ n1: 72704 0x4ECFC19: ??? (in /usr/lib64/libstdc++.so.6.0.25)
+  n1: 72704 0x400F8B9: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x400F9B9: call_init (dl-init.c:118)
+    n1: 72704 0x400F9B9: _dl_init (dl-init.c:119)
+     n1: 72704 0x4000FD9: ??? (in /usr/lib64/ld-2.28.so)
+      n1: 72704 0x1: ???
+       n1: 72704 0x1FFF0003AA: ???
+        n0: 72704 0x1FFF0003B6: ???
+ n0: 1312 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=90
+#-----------
+time=5769776
+mem_heap_B=106875
+mem_heap_extra_B=61
+mem_stacks_B=744
+heap_tree=empty
