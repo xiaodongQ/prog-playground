@@ -1,0 +1,111 @@
+=================================================================
+==42309==ERROR: AddressSanitizer: heap-use-after-free on address 0x602000000010 at pc 0x000000401177 bp 0x7ffcc066e890 sp 0x7ffcc066e880
+READ of size 4 at 0x602000000010 thread T0
+    #0 0x401176 in simulate_dangling_pointer() /home/workspace/prog-playground/memory/leak/leak_test.cpp:65
+    #1 0x401442 in main /home/workspace/prog-playground/memory/leak/leak_test.cpp:99
+    #2 0x7fae1c0f0492 in __libc_start_main ../csu/libc-start.c:314
+    #3 0x400e5d in _start (/home/workspace/prog-playground/memory/leak/leak_test+0x400e5d)
+
+0x602000000010 is located 0 bytes inside of 4-byte region [0x602000000010,0x602000000014)
+freed by thread T0 here:
+    #0 0x7fae1d0d07e0 in __interceptor_free (/lib64/libasan.so.5+0xef7e0)
+    #1 0x40112b in simulate_dangling_pointer() /home/workspace/prog-playground/memory/leak/leak_test.cpp:59
+    #2 0x401442 in main /home/workspace/prog-playground/memory/leak/leak_test.cpp:99
+    #3 0x7fae1c0f0492 in __libc_start_main ../csu/libc-start.c:314
+
+previously allocated by thread T0 here:
+    #0 0x7fae1d0d0ba8 in __interceptor_malloc (/lib64/libasan.so.5+0xefba8)
+    #1 0x4010a3 in simulate_dangling_pointer() /home/workspace/prog-playground/memory/leak/leak_test.cpp:50
+    #2 0x401442 in main /home/workspace/prog-playground/memory/leak/leak_test.cpp:99
+    #3 0x7fae1c0f0492 in __libc_start_main ../csu/libc-start.c:314
+
+SUMMARY: AddressSanitizer: heap-use-after-free /home/workspace/prog-playground/memory/leak/leak_test.cpp:65 in simulate_dangling_pointer()
+Shadow bytes around the buggy address:
+  0x0c047fff7fb0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c047fff7fc0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c047fff7fd0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c047fff7fe0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c047fff7ff0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x0c047fff8000: fa fa[fd]fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff8010: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff8020: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff8030: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff8040: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c047fff8050: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+=================================================================
+==42309==ERROR: AddressSanitizer: stack-buffer-underflow on address 0x7ffcc066e8d0 at pc 0x0000004011e4 bp 0x7ffcc066e890 sp 0x7ffcc066e880
+READ of size 4 at 0x7ffcc066e8d0 thread T0
+    #0 0x4011e3 in simulate_wild_pointer() /home/workspace/prog-playground/memory/leak/leak_test.cpp:76
+    #1 0x401451 in main /home/workspace/prog-playground/memory/leak/leak_test.cpp:102
+    #2 0x7fae1c0f0492 in __libc_start_main ../csu/libc-start.c:314
+    #3 0x400e5d in _start (/home/workspace/prog-playground/memory/leak/leak_test+0x400e5d)
+
+Address 0x7ffcc066e8d0 is located in stack of thread T0 at offset 0 in frame
+    #0 0x40120d in main /home/workspace/prog-playground/memory/leak/leak_test.cpp:79
+
+  This frame has 2 object(s):
+    [32, 36) 'max_chunks'
+    [96, 104) 'leak_thread'
+HINT: this may be a false positive if your program uses some custom stack unwind mechanism or swapcontext
+      (longjmp and C++ exceptions *are* supported)
+SUMMARY: AddressSanitizer: stack-buffer-underflow /home/workspace/prog-playground/memory/leak/leak_test.cpp:76 in simulate_wild_pointer()
+Shadow bytes around the buggy address:
+  0x1000180c5cc0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1000180c5cd0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1000180c5ce0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1000180c5cf0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1000180c5d00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x1000180c5d10: 00 00 00 00 00 00 00 00 00 00[f1]f1 f1 f1 04 f2
+  0x1000180c5d20: f2 f2 f2 f2 f2 f2 00 f2 f2 f2 f3 f3 f3 f3 00 00
+  0x1000180c5d30: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1000180c5d40: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1000180c5d50: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1000180c5d60: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+
+=================================================================
+==42309==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 505380 byte(s) in 1 object(s) allocated from:
+    #0 0x7fae1d0d0ba8 in __interceptor_malloc (/lib64/libasan.so.5+0xefba8)
+    #1 0x400fd3 in random_leak_memory(void*) /home/workspace/prog-playground/memory/leak/leak_test.cpp:22
+    #2 0x7fae1cdc9179 in start_thread /usr/src/debug/glibc-2.28/nptl/pthread_create.c:479
+
+SUMMARY: AddressSanitizer: 505380 byte(s) leaked in 1 allocation(s).

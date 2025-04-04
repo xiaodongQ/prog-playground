@@ -4,7 +4,6 @@
 #include <unistd.h>
 #include <time.h>
 #include <pthread.h>
-#include <sanitizer/lsan_interface.h>
 
 #define MAX_CHUNK_SIZE 1024 * 1024 // 最大块大小为 1 MB
 #define MIN_CHUNK_SIZE 1024        // 最小块大小为 1 KB
@@ -82,7 +81,6 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
     printf("ASAN_OPTIONS=%s\n", getenv("ASAN_OPTIONS"));
-    printf("LSAN_OPTIONS=%s\n", getenv("LSAN_OPTIONS"));
 
     int max_chunks = atoi(argv[1]);
 
@@ -107,14 +105,10 @@ int main(int argc, char *argv[]) {
     pthread_join(leak_thread, NULL);
     printf("\nAll Tests Done.\n");
 
-    // 手动触发内存泄漏检查，避免手动ctrl+c打断下面的while循环时无法触发检查
-    // 实际项目中可添加条件编译宏
-    __lsan_do_leak_check();
-
     // 主动进入无限循环，方便观察内存占用情况
-    while (1) {
-        sleep(1);
-    }
+    //while (1) {
+     //   sleep(1);
+    //}
 
     return 0;
 }
