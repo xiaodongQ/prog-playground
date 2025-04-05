@@ -5,6 +5,10 @@
 #include <time.h>
 #include <pthread.h>
 
+#ifdef TEST_LEAK
+#include <sanitizer/lsan_interface.h>
+#endif
+
 #define MAX_CHUNK_SIZE 1024 * 1024 // 最大块大小为 1 MB
 #define MIN_CHUNK_SIZE 1024        // 最小块大小为 1 KB
 
@@ -104,8 +108,12 @@ int main(int argc, char *argv[]) {
 
     // 等待泄漏线程完成
     pthread_join(leak_thread, NULL);
-
     printf("\nAll Tests Done.\n");
+
+    // 手动触发内存泄漏检查，避免手动ctrl+c打断下面的while循环时无法触发检查
+#ifdef TEST_LEAK
+    __lsan_do_leak_check();
+#endif
 
     // 主动进入无限循环，方便观察内存占用情况
     while (1) {
