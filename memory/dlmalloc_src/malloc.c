@@ -2579,10 +2579,14 @@ typedef struct malloc_segment* msegmentptr;
 #define NSMALLBINS        (32U)
 #define NTREEBINS         (32U)
 #define SMALLBIN_SHIFT    (3U)
+// 1<<3，即8
 #define SMALLBIN_WIDTH    (SIZE_T_ONE << SMALLBIN_SHIFT)
 #define TREEBIN_SHIFT     (8U)
+// 1<<8，即256
 #define MIN_LARGE_SIZE    (SIZE_T_ONE << TREEBIN_SHIFT)
+// 255
 #define MAX_SMALL_SIZE    (MIN_LARGE_SIZE - SIZE_T_ONE)
+// 255-对齐需要的长度-sizeof(size_t)
 #define MAX_SMALL_REQUEST (MAX_SMALL_SIZE - CHUNK_ALIGN_MASK - CHUNK_OVERHEAD)
 
 struct malloc_state {
