@@ -1527,6 +1527,7 @@ LONG __cdecl _InterlockedExchange(LONG volatile *Target, LONG Value);
 #define interlockedcompareexchange _InterlockedCompareExchange
 #define interlockedexchange _InterlockedExchange
 #elif defined(WIN32) && defined(__GNUC__)
+// __sync_val_compare_and_swap 是 GCC 提供的一种内置函数，实现原子操作（atomic operation），用于实现高效的线程同步和无锁数据结构
 #define interlockedcompareexchange(a, b, c) __sync_val_compare_and_swap(a, c, b)
 #define interlockedexchange __sync_lock_test_and_set
 #endif /* Win32 */
@@ -1819,6 +1820,7 @@ static FORCEINLINE int win32munmap(void* ptr, size_t size) {
 
 #else
 #if USE_LOCKS > 1
+// 用户可自定义锁
 /* -----------------------  User-defined locks ------------------------ */
 /* Define your own lock implementation here */
 /* #define INITIAL_LOCK(lk)  ... */
@@ -1828,24 +1830,45 @@ static FORCEINLINE int win32munmap(void* ptr, size_t size) {
 /* #define TRY_LOCK(lk) ... */
 /* static MLOCK_T malloc_global_mutex = ... */
 
+// 使用自旋锁
 #elif USE_SPIN_LOCKS
 
 /* First, define CAS_LOCK and CLEAR_LOCK on ints */
 /* Note CAS_LOCK defined to return 0 on success */
 
 #if defined(__GNUC__)&& (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 1))
+// gcc>=4.1版本，CAS锁，使用gcc提供的 __sync_lock_test_and_set，实现原子交换。常用于实现自旋锁（spinlock）或其他轻量级同步机制
 #define CAS_LOCK(sl)     __sync_lock_test_and_set(sl, 1)
 #define CLEAR_LOCK(sl)   __sync_lock_release(sl)
 
 #elif (defined(__GNUC__) && (defined(__i386__) || defined(__x86_64__)))
+// 老版本的gcc，则自行实现自旋锁
 /* Custom spin locks for older gcc on x86 */
 static FORCEINLINE int x86_cas_lock(int *sl) {
   int ret;
   int val = 1;
   int cmp = 0;
+  // GCC 的 __asm__ 语法编写的内联汇编代码，用于实现一个原子级的 比较并交换（Compare-And-Swap, CAS） 操作
+  // 通常用于实现低级别的同步原语，比如锁或原子变量
+  /*
+    __asm__：表示这是一个内联汇编块
+    __volatile__：告诉编译器不要对这段代码进行优化或重排序，确保它按编写的方式执行
+    lock: 这是一个前缀指令，用于确保在多处理器环境下，接下来的操作是原子的（即不会被其他线程或处理器中断）
+    cmpxchgl: x86 架构中的指令，用于执行比较并交换操作。
+        比较寄存器 EAX 中的值与内存地址 %2 处的值
+        如果两者相等，则将 %1（新值）写入到内存地址 %2
+        如果不相等，则将内存地址 %2 的当前值加载到 EAX 中
+    "=a" (ret): 表示将 cmpxchgl 指令的结果存储到 EAX 寄存器中，并将其赋值给变量 ret。
+    "r" (val): 表示将变量 val 的值加载到一个通用寄存器中（对应汇编中的 %1）。
+    "m" (*(sl)): 表示 *(sl) 是目标内存地址（对应汇编中的 %2），即要操作的共享内存位置。
+    "0"(cmp): 表示将变量 cmp 的值加载到与第一个输出操作数相同的寄存器中（即 EAX）。
+    "memory", "cc": 
+      "memory": 告诉编译器这段代码可能会读取或写入内存，因此编译器不应假设内存中的值在该代码前后保持不变
+      "cc": 表示 CPU 状态寄存器中的条件码标志（如零标志、进位标志等）可能会被修改。
+  */
   __asm__ __volatile__  ("lock; cmpxchgl %1, %2"
                          : "=a" (ret)
-                         : "r" (val), "m" (*(sl)), "0"(cmp)
+                         : "r" (val), "m" (*(sl)), "0"(cmp) // 
                          : "memory", "cc");
   return ret;
 }
@@ -1870,6 +1893,7 @@ static FORCEINLINE void x86_clear_lock(int* sl) {
 #endif /* ... gcc spins locks ... */
 
 /* How to yield for a spin lock */
+// 不同平台使用什么函数来出让时间片（yield）
 #define SPINS_PER_YIELD       63
 #if defined(_MSC_VER)
 #define SLEEP_EX_DURATION     50 /* delay for yield/sleep */
@@ -1877,11 +1901,14 @@ static FORCEINLINE void x86_clear_lock(int* sl) {
 #elif defined (__SVR4) && defined (__sun) /* solaris */
 #define SPIN_LOCK_YIELD   thr_yield();
 #elif !defined(LACKS_SCHED_H)
+// 普通linux平台，用 sched_yield()
 #define SPIN_LOCK_YIELD   sched_yield();
 #else
 #define SPIN_LOCK_YIELD
 #endif /* ... yield ... */
 
+// 递归锁
+// 不使用递归锁的情况
 #if !defined(USE_RECURSIVE_LOCKS) || USE_RECURSIVE_LOCKS == 0
 /* Plain spin locks use single word (embedded in malloc_states) */
 static int spin_acquire_lock(int *sl) {
@@ -1902,6 +1929,7 @@ static int spin_acquire_lock(int *sl) {
 #define DESTROY_LOCK(sl)      (0)
 static MLOCK_T malloc_global_mutex = 0;
 
+// 使用递归锁的情况
 #else /* USE_RECURSIVE_LOCKS */
 /* types for lock owners */
 #ifdef WIN32
@@ -1928,6 +1956,7 @@ struct malloc_recursive_lock {
 #define MLOCK_T  struct malloc_recursive_lock
 static MLOCK_T malloc_global_mutex = { 0, 0, (THREAD_ID_T)0};
 
+// 里面也做了Linux和Windows平台的兼容，还用上述的 自旋锁 来实现递归锁
 static FORCEINLINE void recursive_release_lock(MLOCK_T *lk) {
   assert(lk->sl != 0);
   if (--lk->c == 0) {
@@ -2008,7 +2037,9 @@ static void init_malloc_global_mutex() {
   }
 }
 
+// pthread锁
 #else /* pthreads-based locks */
+// 这里就是常规 pthread_mutex 相关定义和操作了
 #define MLOCK_T               pthread_mutex_t
 #define ACQUIRE_LOCK(lk)      pthread_mutex_lock(lk)
 #define RELEASE_LOCK(lk)      pthread_mutex_unlock(lk)
@@ -3111,6 +3142,7 @@ static void post_fork_child(void)  { INITIAL_LOCK(&(gm)->mutex); }
 /* Initialize mparams */
 static int init_mparams(void) {
 #ifdef NEED_GLOBAL_LOCK_INIT
+  // 初始化锁（利用gcc的原子操作实现无锁编程）
   if (malloc_global_mutex_status <= 0)
     init_malloc_global_mutex();
 #endif
@@ -4576,9 +4608,11 @@ void* dlmalloc(size_t bytes) {
   */
 
 #if USE_LOCKS
+  // 里面会初始化锁
   ensure_initialization(); /* initialize in sys_alloc if not using locks */
 #endif
 
+  // 若启用锁则其中会先加锁
   if (!PREACTION(gm)) {
     void* mem;
     size_t nb;
@@ -4680,6 +4714,7 @@ void* dlmalloc(size_t bytes) {
     mem = sys_alloc(gm, nb);
 
   postaction:
+    // 若启用锁，则其中会解锁
     POSTACTION(gm);
     return mem;
   }
