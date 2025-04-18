@@ -1,0 +1,12 @@
+
+案例：[【BPF网络篇系列-2】容器网络延时之 ipvs 定时器篇](https://www.ebpf.top/post/ebpf_network_kpath_ipvs/) 中，使用了该工具跟踪ping时的软中断情况。
+
+仓库地址：
+https://gist.github.com/theojulienne/9d78a0cb68dbe56f19a2ae6316bc6846
+
+注意：
+
+* traceicmpsoftirq.py 脚本依赖于 BCC 库，需要先安装 BCC 项目
+* traceicmpsoftirq.py 脚本在 Linux 3.10 内核与 Linux 4.x 内核上的读写方式有差异，需要根据内核略有调整。
+
+可供后续写eBPF学习参考。
