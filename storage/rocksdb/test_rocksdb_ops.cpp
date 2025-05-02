@@ -3,10 +3,16 @@
 #include <cstdio>
 #include <cassert>
 #include "rocksdb/db.h"
+#include "rocksdb/statistics.h"
 
 void test() {
     rocksdb::DB* db;
     rocksdb::Options options;
+    // 创建统计
+    options.statistics = rocksdb::CreateDBStatistics();
+    // 默认等级是kExceptDetailedTimers，不统计锁和压缩的耗时
+    // options.statistics->set_stats_level(rocksdb::StatsLevel::kAll);
+
     options.create_if_missing = true;
     // open数据库，不存在则创建
     rocksdb::Status status = rocksdb::DB::Open(options, "/tmp/testdb", &db);
@@ -42,6 +48,15 @@ void test() {
     if (s.ok()) {
         std::cout << "get key:" << key2 << ", value:" << value << std::endl;
     }
+
+
+    // ========== 统计begin ============
+    // 打印statistics统计信息
+    // 直方图，支持很多种类型，由传入参数指定，此处为获取耗时
+    std::cout << "histgram:\n" << options.statistics->getHistogramString(rocksdb::Histograms::DB_GET) << std::endl;
+    // 统计字段
+    std::cout << "statistics:\n" << options.statistics->ToString() << std::endl;
+    // ========== 统计end ============
 
     // 关闭数据库
     status = db->Close();
