@@ -1,0 +1,732 @@
+[CentOS-root@xdlinux ➜ ~ ]$ ./cephadm --verbose bootstrap --mon-ip 192.168.1.150 
+--------------------------------------------------------------------------------
+cephadm ['--verbose', 'bootstrap', '--mon-ip', '192.168.1.150']
+Verifying podman|docker is present...
+Verifying lvm2 is present...
+Verifying time synchronization is in place...
+Non-zero exit code 1 from systemctl is-enabled chrony.service
+systemctl: stderr Failed to get unit file state for chrony.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active chrony.service
+systemctl: stdout inactive
+systemctl: stdout enabled
+systemctl: stdout active
+Unit chronyd.service is enabled and running
+Repeating the final host check...
+docker (/usr/bin/docker) is present
+systemctl is present
+lvcreate is present
+Non-zero exit code 1 from systemctl is-enabled chrony.service
+systemctl: stderr Failed to get unit file state for chrony.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active chrony.service
+systemctl: stdout inactive
+systemctl: stdout enabled
+systemctl: stdout active
+Unit chronyd.service is enabled and running
+Host looks OK
+Cluster fsid: 616bc616-2a08-11f0-86a6-1c697af53932
+Acquiring lock 140041709119248 on /run/cephadm/616bc616-2a08-11f0-86a6-1c697af53932.lock
+Lock 140041709119248 acquired on /run/cephadm/616bc616-2a08-11f0-86a6-1c697af53932.lock
+Verifying IP 192.168.1.150 port 3300 ...
+Verifying IP 192.168.1.150 port 6789 ...
+Base mon IP(s) is [192.168.1.150:3300, 192.168.1.150:6789], mon addrv is [v2:192.168.1.150:3300,v1:192.168.1.150:6789]
+/usr/sbin/ip: stdout default via 192.168.1.1 dev enp4s0 proto static metric 100 
+/usr/sbin/ip: stdout 172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown 
+/usr/sbin/ip: stdout 192.168.1.0/24 dev enp4s0 proto kernel scope link src 192.168.1.150 metric 100 
+/usr/sbin/ip: stdout ::1 dev lo proto kernel metric 256 pref medium
+/usr/sbin/ip: stdout 2409:8a28:cbb:1a30::/64 dev enp4s0 proto ra metric 100 pref medium
+/usr/sbin/ip: stdout fe80::/64 dev enp4s0 proto kernel metric 100 pref medium
+/usr/sbin/ip: stdout default via fe80::1 dev enp4s0 proto ra metric 100 pref medium
+/usr/sbin/ip: stdout 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 state UNKNOWN qlen 1000
+/usr/sbin/ip: stdout     inet6 ::1/128 scope host 
+/usr/sbin/ip: stdout        valid_lft forever preferred_lft forever
+/usr/sbin/ip: stdout 2: enp4s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+/usr/sbin/ip: stdout     inet6 2409:8a28:cbb:1a30:1e69:7aff:fef5:3932/64 scope global dynamic noprefixroute 
+/usr/sbin/ip: stdout        valid_lft 241132sec preferred_lft 154732sec
+/usr/sbin/ip: stdout     inet6 fe80::1e69:7aff:fef5:3932/64 scope link noprefixroute 
+/usr/sbin/ip: stdout        valid_lft forever preferred_lft forever
+Mon IP `192.168.1.150` is in CIDR network `192.168.1.0/24`
+Mon IP `192.168.1.150` is in CIDR network `192.168.1.0/24`
+Inferred mon public CIDR from local network configuration ['192.168.1.0/24', '192.168.1.0/24']
+Internal network (--cluster-network) has not been provided, OSD replication will default to the public_network
+Pulling container image quay.io/ceph/ceph:v17...
+/usr/bin/docker: stdout v17: Pulling from ceph/ceph
+/usr/bin/docker: stdout 837ee02a961d: Pulling fs layer
+/usr/bin/docker: stdout e176c0131e67: Pulling fs layer
+/usr/bin/docker: stdout 837ee02a961d: Verifying Checksum
+/usr/bin/docker: stdout 837ee02a961d: Download complete
+/usr/bin/docker: stdout 837ee02a961d: Pull complete
+/usr/bin/docker: stdout e176c0131e67: Verifying Checksum
+/usr/bin/docker: stdout e176c0131e67: Download complete
+/usr/bin/docker: stdout e176c0131e67: Pull complete
+/usr/bin/docker: stdout Digest: sha256:a0f373aaaf5a5ca5c4379c09da24c771b8266a09dc9e2181f90eacf423d7326f
+/usr/bin/docker: stdout Status: Downloaded newer image for quay.io/ceph/ceph:v17
+/usr/bin/docker: stdout quay.io/ceph/ceph:v17
+ceph: stdout ceph version 17.2.8 (f817ceb7f187defb1d021d6328fa833eb8e943b3) quincy (stable)
+Ceph version: ceph version 17.2.8 (f817ceb7f187defb1d021d6328fa833eb8e943b3) quincy (stable)
+Extracting ceph user uid/gid from container image...
+stat: stdout 167 167
+Creating initial keys...
+/usr/bin/ceph-authtool: stdout AQBZSRlotm6oKRAAnjTtKm8oiILpTbMNoJcQSg==
+/usr/bin/ceph-authtool: stdout AQBZSRlom8smOBAAtHtnYL/5jPqhB4KqgRhjNw==
+/usr/bin/ceph-authtool: stdout AQBaSRlo+hfkCRAAVo4mCO/LgYYPfVhVJcmNAQ==
+Creating initial monmap...
+/usr/bin/monmaptool: stdout /usr/bin/monmaptool: monmap file /tmp/monmap
+/usr/bin/monmaptool: stdout setting min_mon_release = octopus
+/usr/bin/monmaptool: stdout /usr/bin/monmaptool: set fsid to 616bc616-2a08-11f0-86a6-1c697af53932
+/usr/bin/monmaptool: stdout /usr/bin/monmaptool: writing epoch 0 to /tmp/monmap (1 monitors)
+monmaptool for xdlinux [v2:192.168.1.150:3300,v1:192.168.1.150:6789] on /usr/bin/monmaptool: monmap file /tmp/monmap
+setting min_mon_release = octopus
+/usr/bin/monmaptool: set fsid to 616bc616-2a08-11f0-86a6-1c697af53932
+/usr/bin/monmaptool: writing epoch 0 to /tmp/monmap (1 monitors)
+
+Creating mon...
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.662+0000 7fb412bb18c0  0 set uid:gid to 167:167 (ceph:ceph)
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.663+0000 7fb412bb18c0  1 imported monmap:
+/usr/bin/ceph-mon: stderr epoch 0
+/usr/bin/ceph-mon: stderr fsid 616bc616-2a08-11f0-86a6-1c697af53932
+/usr/bin/ceph-mon: stderr last_changed 2025-05-05T23:27:22.414347+0000
+/usr/bin/ceph-mon: stderr created 2025-05-05T23:27:22.414347+0000
+/usr/bin/ceph-mon: stderr min_mon_release 15 (octopus)
+/usr/bin/ceph-mon: stderr election_strategy: 1
+/usr/bin/ceph-mon: stderr 0: [v2:192.168.1.150:3300/0,v1:192.168.1.150:6789/0] mon.xdlinux
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.663+0000 7fb412bb18c0  0 /usr/bin/ceph-mon: set fsid to 616bc616-2a08-11f0-86a6-1c697af53932
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: RocksDB version: 6.15.5
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: Git sha rocksdb_build_git_sha:@0@
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: Compile date Nov 11 2024
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: DB SUMMARY
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: DB Session ID:  RTLGOOR1X8M2HQ6LEEYT
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: SST files in /var/lib/ceph/mon/ceph-xdlinux/store.db dir, Total Num: 0, files: 
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: Write Ahead Log file in /var/lib/ceph/mon/ceph-xdlinux/store.db: 
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                         Options.error_if_exists: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                       Options.create_if_missing: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                         Options.paranoid_checks: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                               Options.track_and_verify_wals_in_manifest: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                                     Options.env: 0x560afdc03500
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                                      Options.fs: Posix File System
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                                Options.info_log: 0x560afffba7a0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                Options.max_file_opening_threads: 16
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                              Options.statistics: (nil)
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                               Options.use_fsync: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                       Options.max_log_file_size: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                  Options.max_manifest_file_size: 1073741824
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                   Options.log_file_time_to_roll: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                       Options.keep_log_file_num: 1000
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                    Options.recycle_log_file_num: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                         Options.allow_fallocate: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                        Options.allow_mmap_reads: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                       Options.allow_mmap_writes: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                        Options.use_direct_reads: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                        Options.use_direct_io_for_flush_and_compaction: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:          Options.create_missing_column_families: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                              Options.db_log_dir: 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                                 Options.wal_dir: /var/lib/ceph/mon/ceph-xdlinux/store.db
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                Options.table_cache_numshardbits: 6
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                         Options.WAL_ttl_seconds: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                       Options.WAL_size_limit_MB: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                        Options.max_write_batch_group_size_bytes: 1048576
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.manifest_preallocation_size: 4194304
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                     Options.is_fd_close_on_exec: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                   Options.advise_random_on_open: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                    Options.db_write_buffer_size: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                    Options.write_buffer_manager: 0x560b0000df80
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:         Options.access_hint_on_compaction_start: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:  Options.new_table_reader_for_compaction_inputs: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:           Options.random_access_max_buffer_size: 1048576
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                      Options.use_adaptive_mutex: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                            Options.rate_limiter: (nil)
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:     Options.sst_file_manager.rate_bytes_per_sec: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                       Options.wal_recovery_mode: 2
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                  Options.enable_thread_tracking: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                  Options.enable_pipelined_write: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                  Options.unordered_write: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:         Options.allow_concurrent_memtable_write: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:      Options.enable_write_thread_adaptive_yield: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.write_thread_max_yield_usec: 100
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:            Options.write_thread_slow_yield_usec: 3
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                               Options.row_cache: None
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                              Options.wal_filter: None
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.avoid_flush_during_recovery: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.allow_ingest_behind: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.preserve_deletes: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.two_write_queues: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.manual_wal_flush: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.atomic_flush: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.avoid_unnecessary_blocking_io: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                 Options.persist_stats_to_disk: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                 Options.write_dbid_to_manifest: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                 Options.log_readahead_size: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                 Options.file_checksum_gen_factory: Unknown
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                 Options.best_efforts_recovery: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                Options.max_bgerror_resume_count: 2147483647
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:            Options.bgerror_resume_retry_interval: 1000000
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.allow_data_in_errors: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.db_host_id: __hostname__
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.max_background_jobs: 2
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.max_background_compactions: -1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.max_subcompactions: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.avoid_flush_during_shutdown: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:           Options.writable_file_max_buffer_size: 1048576
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.delayed_write_rate : 16777216
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.max_total_wal_size: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:             Options.delete_obsolete_files_period_micros: 21600000000
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                   Options.stats_dump_period_sec: 600
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                 Options.stats_persist_period_sec: 600
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                 Options.stats_history_buffer_size: 1048576
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                          Options.max_open_files: -1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                          Options.bytes_per_sync: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                      Options.wal_bytes_per_sync: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                   Options.strict_bytes_per_sync: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:       Options.compaction_readahead_size: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb:                  Options.max_background_flushes: -1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: Compression algorithms supported:
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: 	kZSTD supported: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: 	kXpressCompression supported: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: 	kBZip2Compression supported: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: 	kZSTDNotFinalCompression supported: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: 	kLZ4Compression supported: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: 	kZlibCompression supported: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: 	kLZ4HCCompression supported: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: 	kSnappyCompression supported: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.666+0000 7fb412bb18c0  4 rocksdb: Fast CRC32 supported: Supported on x86
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.668+0000 7fb412bb18c0  4 rocksdb: [db/db_impl/db_impl_open.cc:281] Creating manifest 1 
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: [db/version_set.cc:4724] Recovering from manifest file: /var/lib/ceph/mon/ceph-xdlinux/store.db/MANIFEST-000001
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: [db/column_family.cc:595] --------------- Options for column family [default]:
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:               Options.comparator: leveldb.BytewiseComparator
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:           Options.merge_operator: 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:        Options.compaction_filter: None
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:        Options.compaction_filter_factory: None
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:  Options.sst_partitioner_factory: None
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:         Options.memtable_factory: SkipListFactory
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:            Options.table_factory: BlockBasedTable
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:            table_factory options:   flush_block_policy_factory: FlushBlockBySizePolicyFactory (0x560affffe570)
+/usr/bin/ceph-mon: stderr   cache_index_and_filter_blocks: 1
+/usr/bin/ceph-mon: stderr   cache_index_and_filter_blocks_with_high_priority: 0
+/usr/bin/ceph-mon: stderr   pin_l0_filter_and_index_blocks_in_cache: 0
+/usr/bin/ceph-mon: stderr   pin_top_level_index_and_filter: 1
+/usr/bin/ceph-mon: stderr   index_type: 0
+/usr/bin/ceph-mon: stderr   data_block_index_type: 0
+/usr/bin/ceph-mon: stderr   index_shortening: 1
+/usr/bin/ceph-mon: stderr   data_block_hash_table_util_ratio: 0.750000
+/usr/bin/ceph-mon: stderr   hash_index_allow_collision: 1
+/usr/bin/ceph-mon: stderr   checksum: 1
+/usr/bin/ceph-mon: stderr   no_block_cache: 0
+/usr/bin/ceph-mon: stderr   block_cache: 0x560afff951f0
+/usr/bin/ceph-mon: stderr   block_cache_name: BinnedLRUCache
+/usr/bin/ceph-mon: stderr   block_cache_options:
+/usr/bin/ceph-mon: stderr     capacity : 536870912
+/usr/bin/ceph-mon: stderr     num_shard_bits : 4
+/usr/bin/ceph-mon: stderr     strict_capacity_limit : 0
+/usr/bin/ceph-mon: stderr     high_pri_pool_ratio: 0.000
+/usr/bin/ceph-mon: stderr   block_cache_compressed: (nil)
+/usr/bin/ceph-mon: stderr   persistent_cache: (nil)
+/usr/bin/ceph-mon: stderr   block_size: 4096
+/usr/bin/ceph-mon: stderr   block_size_deviation: 10
+/usr/bin/ceph-mon: stderr   block_restart_interval: 16
+/usr/bin/ceph-mon: stderr   index_block_restart_interval: 1
+/usr/bin/ceph-mon: stderr   metadata_block_size: 4096
+/usr/bin/ceph-mon: stderr   partition_filters: 0
+/usr/bin/ceph-mon: stderr   use_delta_encoding: 1
+/usr/bin/ceph-mon: stderr   filter_policy: rocksdb.BuiltinBloomFilter
+/usr/bin/ceph-mon: stderr   whole_key_filtering: 1
+/usr/bin/ceph-mon: stderr   verify_compression: 0
+/usr/bin/ceph-mon: stderr   read_amp_bytes_per_bit: 0
+/usr/bin/ceph-mon: stderr   format_version: 4
+/usr/bin/ceph-mon: stderr   enable_index_compression: 1
+/usr/bin/ceph-mon: stderr   block_align: 0
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:        Options.write_buffer_size: 33554432
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:  Options.max_write_buffer_number: 2
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:          Options.compression: NoCompression
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                  Options.bottommost_compression: Disabled
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:       Options.prefix_extractor: nullptr
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:   Options.memtable_insert_with_hint_prefix_extractor: nullptr
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:             Options.num_levels: 7
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:        Options.min_write_buffer_number_to_merge: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:     Options.max_write_buffer_number_to_maintain: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:     Options.max_write_buffer_size_to_maintain: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:            Options.bottommost_compression_opts.window_bits: -14
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                  Options.bottommost_compression_opts.level: 32767
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:               Options.bottommost_compression_opts.strategy: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:         Options.bottommost_compression_opts.max_dict_bytes: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:         Options.bottommost_compression_opts.zstd_max_train_bytes: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:         Options.bottommost_compression_opts.parallel_threads: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                  Options.bottommost_compression_opts.enabled: false
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:            Options.compression_opts.window_bits: -14
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                  Options.compression_opts.level: 32767
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:               Options.compression_opts.strategy: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:         Options.compression_opts.max_dict_bytes: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:         Options.compression_opts.zstd_max_train_bytes: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:         Options.compression_opts.parallel_threads: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                  Options.compression_opts.enabled: false
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:      Options.level0_file_num_compaction_trigger: 4
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:          Options.level0_slowdown_writes_trigger: 20
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:              Options.level0_stop_writes_trigger: 36
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                   Options.target_file_size_base: 67108864
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:             Options.target_file_size_multiplier: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                Options.max_bytes_for_level_base: 268435456
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.level_compaction_dynamic_level_bytes: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:          Options.max_bytes_for_level_multiplier: 10.000000
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.max_bytes_for_level_multiplier_addtl[0]: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.max_bytes_for_level_multiplier_addtl[1]: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.max_bytes_for_level_multiplier_addtl[2]: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.max_bytes_for_level_multiplier_addtl[3]: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.max_bytes_for_level_multiplier_addtl[4]: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.max_bytes_for_level_multiplier_addtl[5]: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.max_bytes_for_level_multiplier_addtl[6]: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:       Options.max_sequential_skip_in_iterations: 8
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                    Options.max_compaction_bytes: 1677721600
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                        Options.arena_block_size: 4194304
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:   Options.soft_pending_compaction_bytes_limit: 68719476736
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:   Options.hard_pending_compaction_bytes_limit: 274877906944
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:       Options.rate_limit_delay_max_milliseconds: 100
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                Options.disable_auto_compactions: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                        Options.compaction_style: kCompactionStyleLevel
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                          Options.compaction_pri: kMinOverlappingRatio
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.compaction_options_universal.size_ratio: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.compaction_options_universal.min_merge_width: 2
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.compaction_options_universal.max_merge_width: 4294967295
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.compaction_options_universal.max_size_amplification_percent: 200
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.compaction_options_universal.compression_size_percent: -1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.compaction_options_universal.stop_style: kCompactionStopStyleTotalSize
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.compaction_options_fifo.max_table_files_size: 1073741824
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb: Options.compaction_options_fifo.allow_compaction: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                   Options.table_properties_collectors: CompactOnDeletionCollector (Sliding window size = 32768 Deletion trigger = 16384 Deletion ratio = 0);
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                   Options.inplace_update_support: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                 Options.inplace_update_num_locks: 10000
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:               Options.memtable_prefix_bloom_size_ratio: 0.000000
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:               Options.memtable_whole_key_filtering: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:   Options.memtable_huge_page_size: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                           Options.bloom_locality: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                    Options.max_successive_merges: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                Options.optimize_filters_for_hits: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                Options.paranoid_file_checks: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                Options.force_consistency_checks: 1
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                Options.report_bg_io_stats: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                               Options.ttl: 2592000
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:          Options.periodic_compaction_seconds: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                    Options.enable_blob_files: false
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                        Options.min_blob_size: 0
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                       Options.blob_file_size: 268435456
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:                Options.blob_compression_type: NoCompression
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:       Options.enable_blob_garbage_collection: false
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.672+0000 7fb412bb18c0  4 rocksdb:   Options.blob_garbage_collection_age_cutoff: 0.250000
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.673+0000 7fb412bb18c0  4 rocksdb: [db/version_set.cc:4764] Recovered from manifest file:/var/lib/ceph/mon/ceph-xdlinux/store.db/MANIFEST-000001 succeeded,manifest_file_number is 1, next_file_number is 3, last_sequence is 0, log_number is 0,prev_log_number is 0,max_column_family is 0,min_log_number_to_keep is 0
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.673+0000 7fb412bb18c0  4 rocksdb: [db/version_set.cc:4779] Column family [default] (ID 0), log number is 0
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.673+0000 7fb412bb18c0  4 rocksdb: [db/version_set.cc:4082] Creating manifest 3
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.680+0000 7fb412bb18c0  4 rocksdb: [db/db_impl/db_impl_open.cc:1700] SstFileManager instance 0x560afffc4700
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.680+0000 7fb412bb18c0  4 rocksdb: DB pointer 0x560afffe2000
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.680+0000 7fb40a33d640  4 rocksdb: [db/db_impl/db_impl.cc:901] ------- DUMPING STATS -------
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.680+0000 7fb40a33d640  4 rocksdb: [db/db_impl/db_impl.cc:903] 
+/usr/bin/ceph-mon: stderr ** DB Stats **
+/usr/bin/ceph-mon: stderr Uptime(secs): 0.0 total, 0.0 interval
+/usr/bin/ceph-mon: stderr Cumulative writes: 0 writes, 0 keys, 0 commit groups, 0.0 writes per commit group, ingest: 0.00 GB, 0.00 MB/s
+/usr/bin/ceph-mon: stderr Cumulative WAL: 0 writes, 0 syncs, 0.00 writes per sync, written: 0.00 GB, 0.00 MB/s
+/usr/bin/ceph-mon: stderr Cumulative stall: 00:00:0.000 H:M:S, 0.0 percent
+/usr/bin/ceph-mon: stderr Interval writes: 0 writes, 0 keys, 0 commit groups, 0.0 writes per commit group, ingest: 0.00 MB, 0.00 MB/s
+/usr/bin/ceph-mon: stderr Interval WAL: 0 writes, 0 syncs, 0.00 writes per sync, written: 0.00 MB, 0.00 MB/s
+/usr/bin/ceph-mon: stderr Interval stall: 00:00:0.000 H:M:S, 0.0 percent
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr ** Compaction Stats [default] **
+/usr/bin/ceph-mon: stderr Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+/usr/bin/ceph-mon: stderr ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/usr/bin/ceph-mon: stderr  Sum      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0
+/usr/bin/ceph-mon: stderr  Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr ** Compaction Stats [default] **
+/usr/bin/ceph-mon: stderr Priority    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+/usr/bin/ceph-mon: stderr -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/usr/bin/ceph-mon: stderr Uptime(secs): 0.0 total, 0.0 interval
+/usr/bin/ceph-mon: stderr Flush(GB): cumulative 0.000, interval 0.000
+/usr/bin/ceph-mon: stderr AddFile(GB): cumulative 0.000, interval 0.000
+/usr/bin/ceph-mon: stderr AddFile(Total Files): cumulative 0, interval 0
+/usr/bin/ceph-mon: stderr AddFile(L0 Files): cumulative 0, interval 0
+/usr/bin/ceph-mon: stderr AddFile(Keys): cumulative 0, interval 0
+/usr/bin/ceph-mon: stderr Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+/usr/bin/ceph-mon: stderr Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+/usr/bin/ceph-mon: stderr Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr ** File Read Latency Histogram By Level [default] **
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr ** Compaction Stats [default] **
+/usr/bin/ceph-mon: stderr Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+/usr/bin/ceph-mon: stderr ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/usr/bin/ceph-mon: stderr  Sum      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0
+/usr/bin/ceph-mon: stderr  Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr ** Compaction Stats [default] **
+/usr/bin/ceph-mon: stderr Priority    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+/usr/bin/ceph-mon: stderr -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/usr/bin/ceph-mon: stderr Uptime(secs): 0.0 total, 0.0 interval
+/usr/bin/ceph-mon: stderr Flush(GB): cumulative 0.000, interval 0.000
+/usr/bin/ceph-mon: stderr AddFile(GB): cumulative 0.000, interval 0.000
+/usr/bin/ceph-mon: stderr AddFile(Total Files): cumulative 0, interval 0
+/usr/bin/ceph-mon: stderr AddFile(L0 Files): cumulative 0, interval 0
+/usr/bin/ceph-mon: stderr AddFile(Keys): cumulative 0, interval 0
+/usr/bin/ceph-mon: stderr Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+/usr/bin/ceph-mon: stderr Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+/usr/bin/ceph-mon: stderr Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr ** File Read Latency Histogram By Level [default] **
+/usr/bin/ceph-mon: stderr 
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.684+0000 7fb412bb18c0  4 rocksdb: [db/db_impl/db_impl.cc:446] Shutdown: canceling all background work
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.684+0000 7fb412bb18c0  4 rocksdb: [db/db_impl/db_impl.cc:625] Shutdown complete
+/usr/bin/ceph-mon: stderr debug 2025-05-05T23:27:22.684+0000 7fb412bb18c0  0 /usr/bin/ceph-mon: created monfs at /var/lib/ceph/mon/ceph-xdlinux for mon.xdlinux
+create mon.xdlinux on 
+systemctl: stderr Created symlink /etc/systemd/system/multi-user.target.wants/ceph.target → /etc/systemd/system/ceph.target.
+systemctl: stderr Created symlink /etc/systemd/system/multi-user.target.wants/ceph-616bc616-2a08-11f0-86a6-1c697af53932.target → /etc/systemd/system/ceph-616bc616-2a08-11f0-86a6-1c697af53932.target.
+systemctl: stderr Created symlink /etc/systemd/system/ceph.target.wants/ceph-616bc616-2a08-11f0-86a6-1c697af53932.target → /etc/systemd/system/ceph-616bc616-2a08-11f0-86a6-1c697af53932.target.
+Non-zero exit code 1 from systemctl reset-failed ceph-616bc616-2a08-11f0-86a6-1c697af53932@mon.xdlinux
+systemctl: stderr Failed to reset failed state of unit ceph-616bc616-2a08-11f0-86a6-1c697af53932@mon.xdlinux.service: Unit ceph-616bc616-2a08-11f0-86a6-1c697af53932@mon.xdlinux.service not loaded.
+systemctl: stderr Created symlink /etc/systemd/system/ceph-616bc616-2a08-11f0-86a6-1c697af53932.target.wants/ceph-616bc616-2a08-11f0-86a6-1c697af53932@mon.xdlinux.service → /etc/systemd/system/ceph-616bc616-2a08-11f0-86a6-1c697af53932@.service.
+systemctl: stdout enabled
+systemctl: stdout active
+firewalld ready
+Non-zero exit code 1 from /usr/bin/firewall-cmd --permanent --query-service ceph-mon
+/usr/bin/firewall-cmd: stdout no
+Enabling firewalld service ceph-mon in current zone...
+/usr/bin/firewall-cmd: stdout success
+/usr/bin/firewall-cmd: stdout success
+Waiting for mon to start...
+Waiting for mon...
+/usr/bin/ceph: stdout   cluster:
+/usr/bin/ceph: stdout     id:     616bc616-2a08-11f0-86a6-1c697af53932
+/usr/bin/ceph: stdout     health: HEALTH_OK
+/usr/bin/ceph: stdout  
+/usr/bin/ceph: stdout   services:
+/usr/bin/ceph: stdout     mon: 1 daemons, quorum xdlinux (age 1.40039s)
+/usr/bin/ceph: stdout     mgr: no daemons active
+/usr/bin/ceph: stdout     osd: 0 osds: 0 up, 0 in
+/usr/bin/ceph: stdout  
+/usr/bin/ceph: stdout   data:
+/usr/bin/ceph: stdout     pools:   0 pools, 0 pgs
+/usr/bin/ceph: stdout     objects: 0 objects, 0 B
+/usr/bin/ceph: stdout     usage:   0 B used, 0 B / 0 B avail
+/usr/bin/ceph: stdout     pgs:     
+/usr/bin/ceph: stdout  
+mon is available
+Assimilating anything we can from ceph.conf...
+/usr/bin/ceph: stdout 
+/usr/bin/ceph: stdout [global]
+/usr/bin/ceph: stdout 	fsid = 616bc616-2a08-11f0-86a6-1c697af53932
+/usr/bin/ceph: stdout 	mon_host = [v2:192.168.1.150:3300,v1:192.168.1.150:6789]
+Generating new minimal ceph.conf...
+Restarting the monitor...
+Setting mon public_network to 192.168.1.0/24
+Wrote config to /etc/ceph/ceph.conf
+Wrote keyring to /etc/ceph/ceph.client.admin.keyring
+Creating mgr...
+Verifying port 9283 ...
+Non-zero exit code 1 from systemctl reset-failed ceph-616bc616-2a08-11f0-86a6-1c697af53932@mgr.xdlinux.wfcgil
+systemctl: stderr Failed to reset failed state of unit ceph-616bc616-2a08-11f0-86a6-1c697af53932@mgr.xdlinux.wfcgil.service: Unit ceph-616bc616-2a08-11f0-86a6-1c697af53932@mgr.xdlinux.wfcgil.service not loaded.
+systemctl: stderr Created symlink /etc/systemd/system/ceph-616bc616-2a08-11f0-86a6-1c697af53932.target.wants/ceph-616bc616-2a08-11f0-86a6-1c697af53932@mgr.xdlinux.wfcgil.service → /etc/systemd/system/ceph-616bc616-2a08-11f0-86a6-1c697af53932@.service.
+systemctl: stdout enabled
+systemctl: stdout active
+firewalld ready
+Non-zero exit code 1 from /usr/bin/firewall-cmd --permanent --query-service ceph
+/usr/bin/firewall-cmd: stdout no
+Enabling firewalld service ceph in current zone...
+/usr/bin/firewall-cmd: stdout success
+/usr/bin/firewall-cmd: stdout success
+systemctl: stdout enabled
+systemctl: stdout active
+firewalld ready
+Non-zero exit code 1 from /usr/bin/firewall-cmd --permanent --query-port 9283/tcp
+/usr/bin/firewall-cmd: stdout no
+Enabling firewalld port 9283/tcp in current zone...
+/usr/bin/firewall-cmd: stdout success
+/usr/bin/firewall-cmd: stdout success
+Waiting for mgr to start...
+Waiting for mgr...
+/usr/bin/ceph: stdout 
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "fsid": "616bc616-2a08-11f0-86a6-1c697af53932",
+/usr/bin/ceph: stdout     "health": {
+/usr/bin/ceph: stdout         "status": "HEALTH_OK",
+/usr/bin/ceph: stdout         "checks": {},
+/usr/bin/ceph: stdout         "mutes": []
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "election_epoch": 5,
+/usr/bin/ceph: stdout     "quorum": [
+/usr/bin/ceph: stdout         0
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_names": [
+/usr/bin/ceph: stdout         "xdlinux"
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_age": 3,
+/usr/bin/ceph: stdout     "monmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "min_mon_release_name": "quincy",
+/usr/bin/ceph: stdout         "num_mons": 1
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "osdmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "num_osds": 0,
+/usr/bin/ceph: stdout         "num_up_osds": 0,
+/usr/bin/ceph: stdout         "osd_up_since": 0,
+/usr/bin/ceph: stdout         "num_in_osds": 0,
+/usr/bin/ceph: stdout         "osd_in_since": 0,
+/usr/bin/ceph: stdout         "num_remapped_pgs": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "pgmap": {
+/usr/bin/ceph: stdout         "pgs_by_state": [],
+/usr/bin/ceph: stdout         "num_pgs": 0,
+/usr/bin/ceph: stdout         "num_pools": 0,
+/usr/bin/ceph: stdout         "num_objects": 0,
+/usr/bin/ceph: stdout         "data_bytes": 0,
+/usr/bin/ceph: stdout         "bytes_used": 0,
+/usr/bin/ceph: stdout         "bytes_avail": 0,
+/usr/bin/ceph: stdout         "bytes_total": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "fsmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "by_rank": [],
+/usr/bin/ceph: stdout         "up:standby": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "mgrmap": {
+/usr/bin/ceph: stdout         "available": false,
+/usr/bin/ceph: stdout         "num_standbys": 0,
+/usr/bin/ceph: stdout         "modules": [
+/usr/bin/ceph: stdout             "iostat",
+/usr/bin/ceph: stdout             "nfs",
+/usr/bin/ceph: stdout             "restful"
+/usr/bin/ceph: stdout         ],
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "servicemap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "modified": "2025-05-05T23:27:23.359325+0000",
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "progress_events": {}
+/usr/bin/ceph: stdout }
+mgr not available, waiting (1/15)...
+/usr/bin/ceph: stdout 
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "fsid": "616bc616-2a08-11f0-86a6-1c697af53932",
+/usr/bin/ceph: stdout     "health": {
+/usr/bin/ceph: stdout         "status": "HEALTH_OK",
+/usr/bin/ceph: stdout         "checks": {},
+/usr/bin/ceph: stdout         "mutes": []
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "election_epoch": 5,
+/usr/bin/ceph: stdout     "quorum": [
+/usr/bin/ceph: stdout         0
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_names": [
+/usr/bin/ceph: stdout         "xdlinux"
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_age": 5,
+/usr/bin/ceph: stdout     "monmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "min_mon_release_name": "quincy",
+/usr/bin/ceph: stdout         "num_mons": 1
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "osdmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "num_osds": 0,
+/usr/bin/ceph: stdout         "num_up_osds": 0,
+/usr/bin/ceph: stdout         "osd_up_since": 0,
+/usr/bin/ceph: stdout         "num_in_osds": 0,
+/usr/bin/ceph: stdout         "osd_in_since": 0,
+/usr/bin/ceph: stdout         "num_remapped_pgs": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "pgmap": {
+/usr/bin/ceph: stdout         "pgs_by_state": [],
+/usr/bin/ceph: stdout         "num_pgs": 0,
+/usr/bin/ceph: stdout         "num_pools": 0,
+/usr/bin/ceph: stdout         "num_objects": 0,
+/usr/bin/ceph: stdout         "data_bytes": 0,
+/usr/bin/ceph: stdout         "bytes_used": 0,
+/usr/bin/ceph: stdout         "bytes_avail": 0,
+/usr/bin/ceph: stdout         "bytes_total": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "fsmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "by_rank": [],
+/usr/bin/ceph: stdout         "up:standby": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "mgrmap": {
+/usr/bin/ceph: stdout         "available": false,
+/usr/bin/ceph: stdout         "num_standbys": 0,
+/usr/bin/ceph: stdout         "modules": [
+/usr/bin/ceph: stdout             "iostat",
+/usr/bin/ceph: stdout             "nfs",
+/usr/bin/ceph: stdout             "restful"
+/usr/bin/ceph: stdout         ],
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "servicemap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "modified": "2025-05-05T23:27:23.359325+0000",
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "progress_events": {}
+/usr/bin/ceph: stdout }
+mgr not available, waiting (2/15)...
+/usr/bin/ceph: stdout 
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "fsid": "616bc616-2a08-11f0-86a6-1c697af53932",
+/usr/bin/ceph: stdout     "health": {
+/usr/bin/ceph: stdout         "status": "HEALTH_OK",
+/usr/bin/ceph: stdout         "checks": {},
+/usr/bin/ceph: stdout         "mutes": []
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "election_epoch": 5,
+/usr/bin/ceph: stdout     "quorum": [
+/usr/bin/ceph: stdout         0
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_names": [
+/usr/bin/ceph: stdout         "xdlinux"
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_age": 8,
+/usr/bin/ceph: stdout     "monmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "min_mon_release_name": "quincy",
+/usr/bin/ceph: stdout         "num_mons": 1
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "osdmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "num_osds": 0,
+/usr/bin/ceph: stdout         "num_up_osds": 0,
+/usr/bin/ceph: stdout         "osd_up_since": 0,
+/usr/bin/ceph: stdout         "num_in_osds": 0,
+/usr/bin/ceph: stdout         "osd_in_since": 0,
+/usr/bin/ceph: stdout         "num_remapped_pgs": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "pgmap": {
+/usr/bin/ceph: stdout         "pgs_by_state": [],
+/usr/bin/ceph: stdout         "num_pgs": 0,
+/usr/bin/ceph: stdout         "num_pools": 0,
+/usr/bin/ceph: stdout         "num_objects": 0,
+/usr/bin/ceph: stdout         "data_bytes": 0,
+/usr/bin/ceph: stdout         "bytes_used": 0,
+/usr/bin/ceph: stdout         "bytes_avail": 0,
+/usr/bin/ceph: stdout         "bytes_total": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "fsmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "by_rank": [],
+/usr/bin/ceph: stdout         "up:standby": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "mgrmap": {
+/usr/bin/ceph: stdout         "available": true,
+/usr/bin/ceph: stdout         "num_standbys": 0,
+/usr/bin/ceph: stdout         "modules": [
+/usr/bin/ceph: stdout             "iostat",
+/usr/bin/ceph: stdout             "nfs",
+/usr/bin/ceph: stdout             "restful"
+/usr/bin/ceph: stdout         ],
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "servicemap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "modified": "2025-05-05T23:27:23.359325+0000",
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "progress_events": {}
+/usr/bin/ceph: stdout }
+mgr is available
+Enabling cephadm module...
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "epoch": 5,
+/usr/bin/ceph: stdout     "available": true,
+/usr/bin/ceph: stdout     "active_name": "xdlinux.wfcgil",
+/usr/bin/ceph: stdout     "num_standby": 0
+/usr/bin/ceph: stdout }
+Waiting for the mgr to restart...
+Waiting for mgr epoch 5...
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "mgrmap_epoch": 7,
+/usr/bin/ceph: stdout     "initialized": true
+/usr/bin/ceph: stdout }
+mgr epoch 5 is available
+Setting orchestrator backend to cephadm...
+/usr/bin/ceph: stdout value unchanged
+Generating ssh key...
+/usr/bin/ceph: stdout ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDAYu7QrZmDsqRoVl/u4EqYf1Y1CyjW0cCO6uutJ/pRKOmqDvushMw1hW2mnd2CuKw98Xc06myCzxj52ykWPYGtwDa+DNP0yjWDyLw9C1sr+qNZfmicKG2jzKkLINCoGJMU+Cjq06/EnuosBVdgeBpc06vOa4ELU395KY22GfqwJATIthdI2kRH4szL7nGjjXfR+XVGiK1+ee2AYEjKASqVxV9I6MilqrMbh4BnWSJaHmZzOjyCFTlInh0YwFMgwGl7wMgBuCjqNh+MBCcelMwJ/VPWJPB21/8dhHHU0PZez0Ca+FEQTKHWzqMUDm+DHFyGD6LRBY9YcallkmW1f4QVmC217mRCJBFXPKhDMRqqeZ/Ax/Ie6+RbHw7rgLhvPoAj7X3gIVWNF+CdfT+WV6KS/+THIl/8q2JQUDcrKP4sGrdhcL6unIT3Ksk/gmLAPFA0ZEXcDxeeWrS6VSYongA9uKj8L7KQ0LMKA67Nv5+42IqFIsb2WEUgWzJAJNV0748= ceph-616bc616-2a08-11f0-86a6-1c697af53932
+Wrote public SSH key to /etc/ceph/ceph.pub
+Adding key to root@localhost authorized_keys...
+Adding host xdlinux...
+/usr/bin/ceph: stdout Added host 'xdlinux' with addr '192.168.1.150'
+Deploying mon service with default placement...
+/usr/bin/ceph: stdout Scheduled mon update...
+Deploying mgr service with default placement...
+/usr/bin/ceph: stdout Scheduled mgr update...
+Deploying crash service with default placement...
+/usr/bin/ceph: stdout Scheduled crash update...
+Deploying prometheus service with default placement...
+/usr/bin/ceph: stdout Scheduled prometheus update...
+Deploying grafana service with default placement...
+/usr/bin/ceph: stdout Scheduled grafana update...
+Deploying node-exporter service with default placement...
+/usr/bin/ceph: stdout Scheduled node-exporter update...
+Deploying alertmanager service with default placement...
+/usr/bin/ceph: stdout Scheduled alertmanager update...
+Enabling the dashboard module...
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "epoch": 9,
+/usr/bin/ceph: stdout     "available": true,
+/usr/bin/ceph: stdout     "active_name": "xdlinux.wfcgil",
+/usr/bin/ceph: stdout     "num_standby": 0
+/usr/bin/ceph: stdout }
+Waiting for the mgr to restart...
+Waiting for mgr epoch 9...
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "mgrmap_epoch": 11,
+/usr/bin/ceph: stdout     "initialized": true
+/usr/bin/ceph: stdout }
+mgr epoch 9 is available
+Generating a dashboard self-signed certificate...
+/usr/bin/ceph: stdout Self-signed certificate created
+Creating initial admin user...
+/usr/bin/ceph: stdout {"username": "admin", "password": "$2b$12$T/9S/pFZWpiAhd1DneOI4O1eA.qN8Lqs6cLpaT5bHeRE0PTX8FoUS", "roles": ["administrator"], "name": null, "email": null, "lastUpdate": 1746487677, "enabled": true, "pwdExpirationDate": null, "pwdUpdateRequired": true}
+Fetching dashboard port number...
+/usr/bin/ceph: stdout 8443
+systemctl: stdout enabled
+systemctl: stdout active
+firewalld ready
+Non-zero exit code 1 from /usr/bin/firewall-cmd --permanent --query-port 8443/tcp
+/usr/bin/firewall-cmd: stdout no
+Enabling firewalld port 8443/tcp in current zone...
+/usr/bin/firewall-cmd: stdout success
+/usr/bin/firewall-cmd: stdout success
+Ceph Dashboard is now available at:
+
+	     URL: https://xdlinux:8443/
+	    User: admin
+	Password: c7y70jlyad
+
+Enabling client.admin keyring and conf on hosts with "admin" label
+/usr/bin/ceph: stdout Added label _admin to host xdlinux
+Saving cluster configuration to /var/lib/ceph/616bc616-2a08-11f0-86a6-1c697af53932/config directory
+Enabling autotune for osd_memory_target
+/usr/bin/ceph: stderr set mgr/dashboard/cluster/status
+You can access the Ceph CLI as following in case of multi-cluster or non-default config:
+
+	sudo ./cephadm shell --fsid 616bc616-2a08-11f0-86a6-1c697af53932 -c /etc/ceph/ceph.conf -k /etc/ceph/ceph.client.admin.keyring
+
+Or, if you are only running a single cluster on this host:
+
+	sudo ./cephadm shell 
+
+Please consider enabling telemetry to help improve Ceph:
+
+	ceph telemetry on
+
+For more information see:
+
+	https://docs.ceph.com/docs/master/mgr/telemetry/
+
+Bootstrap complete.
