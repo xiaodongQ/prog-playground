@@ -1,0 +1,701 @@
+[root@xdlinux ➜ ~ ]$ cephadm --verbose bootstrap --mon-ip 192.168.1.150 
+--------------------------------------------------------------------------------
+cephadm ['--verbose', 'bootstrap', '--mon-ip', '192.168.1.150']
+Creating directory /etc/ceph for ceph.conf
+Verifying podman|docker is present...
+/usr/bin/podman: stdout 5.2.2
+Verifying lvm2 is present...
+Verifying time synchronization is in place...
+Non-zero exit code 1 from systemctl is-enabled chrony.service
+systemctl: stderr Failed to get unit file state for chrony.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active chrony.service
+systemctl: stdout inactive
+Non-zero exit code 1 from systemctl is-enabled chronyd.service
+systemctl: stdout disabled
+Non-zero exit code 3 from systemctl is-active chronyd.service
+systemctl: stdout inactive
+Non-zero exit code 1 from systemctl is-enabled systemd-timesyncd.service
+systemctl: stderr Failed to get unit file state for systemd-timesyncd.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active systemd-timesyncd.service
+systemctl: stdout inactive
+Non-zero exit code 1 from systemctl is-enabled ntpd.service
+systemctl: stderr Failed to get unit file state for ntpd.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active ntpd.service
+systemctl: stdout inactive
+Non-zero exit code 1 from systemctl is-enabled ntp.service
+systemctl: stderr Failed to get unit file state for ntp.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active ntp.service
+systemctl: stdout inactive
+Non-zero exit code 1 from systemctl is-enabled ntpsec.service
+systemctl: stderr Failed to get unit file state for ntpsec.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active ntpsec.service
+systemctl: stdout inactive
+Non-zero exit code 1 from systemctl is-enabled openntpd.service
+systemctl: stderr Failed to get unit file state for openntpd.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active openntpd.service
+systemctl: stdout inactive
+Non-zero exit code 1 from systemctl is-enabled timemaster.service
+systemctl: stderr Failed to get unit file state for timemaster.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active timemaster.service
+systemctl: stdout inactive
+No time sync service is running; checked for ['chrony.service', 'chronyd.service', 'systemd-timesyncd.service', 'ntpd.service', 'ntp.service', 'ntpsec.service', 'openntpd.service', 'timemaster.service']
+Installing packages ['chrony']...
+yum: stdout Last metadata expiration check: 0:47:45 ago on Thu 08 May 2025 10:57:41 PM CST.
+yum: stdout Package chrony-4.5-3.el9.x86_64 is already installed.
+yum: stdout Dependencies resolved.
+yum: stdout Nothing to do.
+yum: stdout Complete!
+Non-zero exit code 1 from systemctl is-enabled chrony.service
+systemctl: stderr Failed to get unit file state for chrony.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active chrony.service
+systemctl: stdout inactive
+Non-zero exit code 1 from systemctl is-enabled chronyd.service
+systemctl: stdout disabled
+Non-zero exit code 3 from systemctl is-active chronyd.service
+systemctl: stdout inactive
+Enabling unit chronyd.service
+systemctl: stderr Created symlink /etc/systemd/system/multi-user.target.wants/chronyd.service → /usr/lib/systemd/system/chronyd.service.
+Non-zero exit code 1 from systemctl is-enabled systemd-timesyncd.service
+systemctl: stderr Failed to get unit file state for systemd-timesyncd.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active systemd-timesyncd.service
+systemctl: stdout inactive
+Non-zero exit code 1 from systemctl is-enabled ntpd.service
+systemctl: stderr Failed to get unit file state for ntpd.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active ntpd.service
+systemctl: stdout inactive
+Non-zero exit code 1 from systemctl is-enabled ntp.service
+systemctl: stderr Failed to get unit file state for ntp.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active ntp.service
+systemctl: stdout inactive
+Non-zero exit code 1 from systemctl is-enabled ntpsec.service
+systemctl: stderr Failed to get unit file state for ntpsec.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active ntpsec.service
+systemctl: stdout inactive
+Non-zero exit code 1 from systemctl is-enabled openntpd.service
+systemctl: stderr Failed to get unit file state for openntpd.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active openntpd.service
+systemctl: stdout inactive
+Non-zero exit code 1 from systemctl is-enabled timemaster.service
+systemctl: stderr Failed to get unit file state for timemaster.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active timemaster.service
+systemctl: stdout inactive
+No time sync service is running; checked for ['chrony.service', 'chronyd.service', 'systemd-timesyncd.service', 'ntpd.service', 'ntp.service', 'ntpsec.service', 'openntpd.service', 'timemaster.service']
+Repeating the final host check...
+/usr/bin/podman: stdout 5.2.2
+podman (/usr/bin/podman) version 5.2.2 is present
+systemctl is present
+lvcreate is present
+Non-zero exit code 1 from systemctl is-enabled chrony.service
+systemctl: stderr Failed to get unit file state for chrony.service: No such file or directory
+Non-zero exit code 3 from systemctl is-active chrony.service
+systemctl: stdout inactive
+systemctl: stdout enabled
+systemctl: stdout active
+Unit chronyd.service is enabled and running
+Host looks OK
+Cluster fsid: 75ab91f2-2c23-11f0-8e6f-1c697af53932
+Acquiring lock 139845315808944 on /run/cephadm/75ab91f2-2c23-11f0-8e6f-1c697af53932.lock
+Lock 139845315808944 acquired on /run/cephadm/75ab91f2-2c23-11f0-8e6f-1c697af53932.lock
+Verifying IP 192.168.1.150 port 3300 ...
+Verifying IP 192.168.1.150 port 6789 ...
+Base mon IP(s) is [192.168.1.150:3300, 192.168.1.150:6789], mon addrv is [v2:192.168.1.150:3300,v1:192.168.1.150:6789]
+/usr/sbin/ip: stdout default via 192.168.1.1 dev enp4s0 proto static metric 100 
+/usr/sbin/ip: stdout 192.168.1.0/24 dev enp4s0 proto kernel scope link src 192.168.1.150 metric 100 
+/usr/sbin/ip: stdout ::1 dev lo proto kernel metric 256 pref medium
+/usr/sbin/ip: stdout 2409:8a28:cbb:1a30::/64 dev enp4s0 proto ra metric 100 pref medium
+/usr/sbin/ip: stdout fe80::/64 dev enp4s0 proto kernel metric 1024 pref medium
+/usr/sbin/ip: stdout default via fe80::1 dev enp4s0 proto ra metric 100 pref medium
+/usr/sbin/ip: stdout 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 state UNKNOWN qlen 1000
+/usr/sbin/ip: stdout     inet6 ::1/128 scope host 
+/usr/sbin/ip: stdout        valid_lft forever preferred_lft forever
+/usr/sbin/ip: stdout 2: enp4s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+/usr/sbin/ip: stdout     inet6 2409:8a28:cbb:1a30:9270:8897:11cd:e758/64 scope global dynamic noprefixroute 
+/usr/sbin/ip: stdout        valid_lft 182395sec preferred_lft 95995sec
+/usr/sbin/ip: stdout     inet6 fe80::be75:47aa:ea05:53fb/64 scope link noprefixroute 
+/usr/sbin/ip: stdout        valid_lft forever preferred_lft forever
+Mon IP `192.168.1.150` is in CIDR network `192.168.1.0/24`
+Mon IP `192.168.1.150` is in CIDR network `192.168.1.0/24`
+Inferred mon public CIDR from local network configuration ['192.168.1.0/24', '192.168.1.0/24']
+Internal network (--cluster-network) has not been provided, OSD replication will default to the public_network
+Pulling container image quay.io/ceph/ceph:v19...
+/usr/bin/podman: stdout 4892a7ef541bbfe6181ff8fd5c8e03957338f7dd73de94986a5f15e185dacd51
+/usr/bin/podman: stderr Trying to pull quay.io/ceph/ceph:v19...
+/usr/bin/podman: stderr Getting image source signatures
+/usr/bin/podman: stderr Copying blob sha256:ed1353645abdc267182d77e6145ba57abcdd780c0496f7aade78cc0769ef9d68
+/usr/bin/podman: stderr Copying blob sha256:5a2dfa39595183c5aa46a7462a2bd398f1ecf89b2f558b4461566f12e89a9524
+/usr/bin/podman: stderr Copying config sha256:4892a7ef541bbfe6181ff8fd5c8e03957338f7dd73de94986a5f15e185dacd51
+/usr/bin/podman: stderr Writing manifest to image destination
+ceph: stdout ceph version 19.2.2 (0eceb0defba60152a8182f7bd87d164b639885b8) squid (stable)
+Ceph version: ceph version 19.2.2 (0eceb0defba60152a8182f7bd87d164b639885b8) squid (stable)
+Extracting ceph user uid/gid from container image...
+stat: stdout 167 167
+Creating initial keys...
+/usr/bin/ceph-authtool: stdout AQDO0RxovjrtMBAAc/q/K3Pj6Cvbn0XZdtgbuQ==
+/usr/bin/ceph-authtool: stdout AQDO0RxoREOEOxAAfD0X7Xbq2GIb1tdHThe7hQ==
+/usr/bin/ceph-authtool: stdout AQDP0RxopPQPChAAaM82aZdNbYI/eXdLNI1VvQ==
+Creating initial monmap...
+/usr/bin/monmaptool: stdout /usr/bin/monmaptool: monmap file /tmp/monmap
+/usr/bin/monmaptool: stdout setting min_mon_release = quincy
+/usr/bin/monmaptool: stdout /usr/bin/monmaptool: set fsid to 75ab91f2-2c23-11f0-8e6f-1c697af53932
+/usr/bin/monmaptool: stdout /usr/bin/monmaptool: writing epoch 0 to /tmp/monmap (1 monitors)
+monmaptool for xdlinux [v2:192.168.1.150:3300,v1:192.168.1.150:6789] on /usr/bin/monmaptool: monmap file /tmp/monmap
+setting min_mon_release = quincy
+/usr/bin/monmaptool: set fsid to 75ab91f2-2c23-11f0-8e6f-1c697af53932
+/usr/bin/monmaptool: writing epoch 0 to /tmp/monmap (1 monitors)
+
+Creating mon...
+create mon.xdlinux on 
+systemctl: stderr Created symlink /etc/systemd/system/multi-user.target.wants/ceph.target → /etc/systemd/system/ceph.target.
+systemctl: stderr Created symlink /etc/systemd/system/multi-user.target.wants/ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932.target → /etc/systemd/system/ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932.target.
+systemctl: stderr Created symlink /etc/systemd/system/ceph.target.wants/ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932.target → /etc/systemd/system/ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932.target.
+Non-zero exit code 1 from systemctl reset-failed ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932@mon.xdlinux
+systemctl: stderr Failed to reset failed state of unit ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932@mon.xdlinux.service: Unit ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932@mon.xdlinux.service not loaded.
+systemctl: stderr Created symlink /etc/systemd/system/ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932.target.wants/ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932@mon.xdlinux.service → /etc/systemd/system/ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932@.service.
+systemctl: stdout enabled
+systemctl: stdout active
+firewalld ready
+Non-zero exit code 1 from /usr/bin/firewall-cmd --permanent --query-service ceph-mon
+/usr/bin/firewall-cmd: stdout no
+Enabling firewalld service ceph-mon in current zone...
+/usr/bin/firewall-cmd: stdout success
+/usr/bin/firewall-cmd: stdout success
+Waiting for mon to start...
+Waiting for mon...
+/usr/bin/ceph: stdout   cluster:
+/usr/bin/ceph: stdout     id:     75ab91f2-2c23-11f0-8e6f-1c697af53932
+/usr/bin/ceph: stdout     health: HEALTH_OK
+/usr/bin/ceph: stdout  
+/usr/bin/ceph: stdout   services:
+/usr/bin/ceph: stdout     mon: 1 daemons, quorum xdlinux (age 0.785771s)
+/usr/bin/ceph: stdout     mgr: no daemons active
+/usr/bin/ceph: stdout     osd: 0 osds: 0 up, 0 in
+/usr/bin/ceph: stdout  
+/usr/bin/ceph: stdout   data:
+/usr/bin/ceph: stdout     pools:   0 pools, 0 pgs
+/usr/bin/ceph: stdout     objects: 0 objects, 0 B
+/usr/bin/ceph: stdout     usage:   0 B used, 0 B / 0 B avail
+/usr/bin/ceph: stdout     pgs:     
+/usr/bin/ceph: stdout  
+mon is available
+Assimilating anything we can from ceph.conf...
+/usr/bin/ceph: stdout 
+/usr/bin/ceph: stdout [global]
+/usr/bin/ceph: stdout 	fsid = 75ab91f2-2c23-11f0-8e6f-1c697af53932
+/usr/bin/ceph: stdout 	mon_host = [v2:192.168.1.150:3300,v1:192.168.1.150:6789]
+Generating new minimal ceph.conf...
+Restarting the monitor...
+Setting public_network to 192.168.1.0/24 in mon config section
+Wrote config to /etc/ceph/ceph.conf
+Wrote keyring to /etc/ceph/ceph.client.admin.keyring
+Creating mgr...
+Verifying port 0.0.0.0:9283 ...
+Verifying port 0.0.0.0:8765 ...
+Verifying port 0.0.0.0:8443 ...
+Non-zero exit code 1 from systemctl reset-failed ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932@mgr.xdlinux.qnvoyl
+systemctl: stderr Failed to reset failed state of unit ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932@mgr.xdlinux.qnvoyl.service: Unit ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932@mgr.xdlinux.qnvoyl.service not loaded.
+systemctl: stderr Created symlink /etc/systemd/system/ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932.target.wants/ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932@mgr.xdlinux.qnvoyl.service → /etc/systemd/system/ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932@.service.
+systemctl: stdout enabled
+systemctl: stdout active
+firewalld ready
+Non-zero exit code 1 from /usr/bin/firewall-cmd --permanent --query-service ceph
+/usr/bin/firewall-cmd: stdout no
+Enabling firewalld service ceph in current zone...
+/usr/bin/firewall-cmd: stdout success
+/usr/bin/firewall-cmd: stdout success
+systemctl: stdout enabled
+systemctl: stdout active
+firewalld ready
+Non-zero exit code 1 from /usr/bin/firewall-cmd --permanent --query-port 9283/tcp
+/usr/bin/firewall-cmd: stdout no
+Enabling firewalld port 9283/tcp in current zone...
+/usr/bin/firewall-cmd: stdout success
+Non-zero exit code 1 from /usr/bin/firewall-cmd --permanent --query-port 8765/tcp
+/usr/bin/firewall-cmd: stdout no
+Enabling firewalld port 8765/tcp in current zone...
+/usr/bin/firewall-cmd: stdout success
+Non-zero exit code 1 from /usr/bin/firewall-cmd --permanent --query-port 8443/tcp
+/usr/bin/firewall-cmd: stdout no
+Enabling firewalld port 8443/tcp in current zone...
+/usr/bin/firewall-cmd: stdout success
+/usr/bin/firewall-cmd: stdout success
+Waiting for mgr to start...
+Waiting for mgr...
+/usr/bin/ceph: stdout 
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "fsid": "75ab91f2-2c23-11f0-8e6f-1c697af53932",
+/usr/bin/ceph: stdout     "health": {
+/usr/bin/ceph: stdout         "status": "HEALTH_OK",
+/usr/bin/ceph: stdout         "checks": {},
+/usr/bin/ceph: stdout         "mutes": []
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "election_epoch": 5,
+/usr/bin/ceph: stdout     "quorum": [
+/usr/bin/ceph: stdout         0
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_names": [
+/usr/bin/ceph: stdout         "xdlinux"
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_age": 2,
+/usr/bin/ceph: stdout     "monmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "min_mon_release_name": "squid",
+/usr/bin/ceph: stdout         "num_mons": 1
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "osdmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "num_osds": 0,
+/usr/bin/ceph: stdout         "num_up_osds": 0,
+/usr/bin/ceph: stdout         "osd_up_since": 0,
+/usr/bin/ceph: stdout         "num_in_osds": 0,
+/usr/bin/ceph: stdout         "osd_in_since": 0,
+/usr/bin/ceph: stdout         "num_remapped_pgs": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "pgmap": {
+/usr/bin/ceph: stdout         "pgs_by_state": [],
+/usr/bin/ceph: stdout         "num_pgs": 0,
+/usr/bin/ceph: stdout         "num_pools": 0,
+/usr/bin/ceph: stdout         "num_objects": 0,
+/usr/bin/ceph: stdout         "data_bytes": 0,
+/usr/bin/ceph: stdout         "bytes_used": 0,
+/usr/bin/ceph: stdout         "bytes_avail": 0,
+/usr/bin/ceph: stdout         "bytes_total": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "fsmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "btime": "2025-05-08T15:46:24:680595+0000",
+/usr/bin/ceph: stdout         "by_rank": [],
+/usr/bin/ceph: stdout         "up:standby": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "mgrmap": {
+/usr/bin/ceph: stdout         "available": false,
+/usr/bin/ceph: stdout         "num_standbys": 0,
+/usr/bin/ceph: stdout         "modules": [
+/usr/bin/ceph: stdout             "iostat",
+/usr/bin/ceph: stdout             "nfs",
+/usr/bin/ceph: stdout             "restful"
+/usr/bin/ceph: stdout         ],
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "servicemap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "modified": "2025-05-08T15:46:24.682610+0000",
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "progress_events": {}
+/usr/bin/ceph: stdout }
+mgr not available, waiting (1/15)...
+/usr/bin/ceph: stdout 
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "fsid": "75ab91f2-2c23-11f0-8e6f-1c697af53932",
+/usr/bin/ceph: stdout     "health": {
+/usr/bin/ceph: stdout         "status": "HEALTH_OK",
+/usr/bin/ceph: stdout         "checks": {},
+/usr/bin/ceph: stdout         "mutes": []
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "election_epoch": 5,
+/usr/bin/ceph: stdout     "quorum": [
+/usr/bin/ceph: stdout         0
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_names": [
+/usr/bin/ceph: stdout         "xdlinux"
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_age": 5,
+/usr/bin/ceph: stdout     "monmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "min_mon_release_name": "squid",
+/usr/bin/ceph: stdout         "num_mons": 1
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "osdmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "num_osds": 0,
+/usr/bin/ceph: stdout         "num_up_osds": 0,
+/usr/bin/ceph: stdout         "osd_up_since": 0,
+/usr/bin/ceph: stdout         "num_in_osds": 0,
+/usr/bin/ceph: stdout         "osd_in_since": 0,
+/usr/bin/ceph: stdout         "num_remapped_pgs": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "pgmap": {
+/usr/bin/ceph: stdout         "pgs_by_state": [],
+/usr/bin/ceph: stdout         "num_pgs": 0,
+/usr/bin/ceph: stdout         "num_pools": 0,
+/usr/bin/ceph: stdout         "num_objects": 0,
+/usr/bin/ceph: stdout         "data_bytes": 0,
+/usr/bin/ceph: stdout         "bytes_used": 0,
+/usr/bin/ceph: stdout         "bytes_avail": 0,
+/usr/bin/ceph: stdout         "bytes_total": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "fsmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "btime": "2025-05-08T15:46:24:680595+0000",
+/usr/bin/ceph: stdout         "by_rank": [],
+/usr/bin/ceph: stdout         "up:standby": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "mgrmap": {
+/usr/bin/ceph: stdout         "available": false,
+/usr/bin/ceph: stdout         "num_standbys": 0,
+/usr/bin/ceph: stdout         "modules": [
+/usr/bin/ceph: stdout             "iostat",
+/usr/bin/ceph: stdout             "nfs",
+/usr/bin/ceph: stdout             "restful"
+/usr/bin/ceph: stdout         ],
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "servicemap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "modified": "2025-05-08T15:46:24.682610+0000",
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "progress_events": {}
+/usr/bin/ceph: stdout }
+mgr not available, waiting (2/15)...
+/usr/bin/ceph: stdout 
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "fsid": "75ab91f2-2c23-11f0-8e6f-1c697af53932",
+/usr/bin/ceph: stdout     "health": {
+/usr/bin/ceph: stdout         "status": "HEALTH_OK",
+/usr/bin/ceph: stdout         "checks": {},
+/usr/bin/ceph: stdout         "mutes": []
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "election_epoch": 5,
+/usr/bin/ceph: stdout     "quorum": [
+/usr/bin/ceph: stdout         0
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_names": [
+/usr/bin/ceph: stdout         "xdlinux"
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_age": 7,
+/usr/bin/ceph: stdout     "monmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "min_mon_release_name": "squid",
+/usr/bin/ceph: stdout         "num_mons": 1
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "osdmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "num_osds": 0,
+/usr/bin/ceph: stdout         "num_up_osds": 0,
+/usr/bin/ceph: stdout         "osd_up_since": 0,
+/usr/bin/ceph: stdout         "num_in_osds": 0,
+/usr/bin/ceph: stdout         "osd_in_since": 0,
+/usr/bin/ceph: stdout         "num_remapped_pgs": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "pgmap": {
+/usr/bin/ceph: stdout         "pgs_by_state": [],
+/usr/bin/ceph: stdout         "num_pgs": 0,
+/usr/bin/ceph: stdout         "num_pools": 0,
+/usr/bin/ceph: stdout         "num_objects": 0,
+/usr/bin/ceph: stdout         "data_bytes": 0,
+/usr/bin/ceph: stdout         "bytes_used": 0,
+/usr/bin/ceph: stdout         "bytes_avail": 0,
+/usr/bin/ceph: stdout         "bytes_total": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "fsmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "btime": "2025-05-08T15:46:24:680595+0000",
+/usr/bin/ceph: stdout         "by_rank": [],
+/usr/bin/ceph: stdout         "up:standby": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "mgrmap": {
+/usr/bin/ceph: stdout         "available": false,
+/usr/bin/ceph: stdout         "num_standbys": 0,
+/usr/bin/ceph: stdout         "modules": [
+/usr/bin/ceph: stdout             "iostat",
+/usr/bin/ceph: stdout             "nfs",
+/usr/bin/ceph: stdout             "restful"
+/usr/bin/ceph: stdout         ],
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "servicemap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "modified": "2025-05-08T15:46:24.682610+0000",
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "progress_events": {}
+/usr/bin/ceph: stdout }
+mgr not available, waiting (3/15)...
+/usr/bin/ceph: stdout 
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "fsid": "75ab91f2-2c23-11f0-8e6f-1c697af53932",
+/usr/bin/ceph: stdout     "health": {
+/usr/bin/ceph: stdout         "status": "HEALTH_OK",
+/usr/bin/ceph: stdout         "checks": {},
+/usr/bin/ceph: stdout         "mutes": []
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "election_epoch": 5,
+/usr/bin/ceph: stdout     "quorum": [
+/usr/bin/ceph: stdout         0
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_names": [
+/usr/bin/ceph: stdout         "xdlinux"
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_age": 9,
+/usr/bin/ceph: stdout     "monmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "min_mon_release_name": "squid",
+/usr/bin/ceph: stdout         "num_mons": 1
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "osdmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "num_osds": 0,
+/usr/bin/ceph: stdout         "num_up_osds": 0,
+/usr/bin/ceph: stdout         "osd_up_since": 0,
+/usr/bin/ceph: stdout         "num_in_osds": 0,
+/usr/bin/ceph: stdout         "osd_in_since": 0,
+/usr/bin/ceph: stdout         "num_remapped_pgs": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "pgmap": {
+/usr/bin/ceph: stdout         "pgs_by_state": [],
+/usr/bin/ceph: stdout         "num_pgs": 0,
+/usr/bin/ceph: stdout         "num_pools": 0,
+/usr/bin/ceph: stdout         "num_objects": 0,
+/usr/bin/ceph: stdout         "data_bytes": 0,
+/usr/bin/ceph: stdout         "bytes_used": 0,
+/usr/bin/ceph: stdout         "bytes_avail": 0,
+/usr/bin/ceph: stdout         "bytes_total": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "fsmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "btime": "2025-05-08T15:46:24:680595+0000",
+/usr/bin/ceph: stdout         "by_rank": [],
+/usr/bin/ceph: stdout         "up:standby": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "mgrmap": {
+/usr/bin/ceph: stdout         "available": false,
+/usr/bin/ceph: stdout         "num_standbys": 0,
+/usr/bin/ceph: stdout         "modules": [
+/usr/bin/ceph: stdout             "iostat",
+/usr/bin/ceph: stdout             "nfs",
+/usr/bin/ceph: stdout             "restful"
+/usr/bin/ceph: stdout         ],
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "servicemap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "modified": "2025-05-08T15:46:24.682610+0000",
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "progress_events": {}
+/usr/bin/ceph: stdout }
+mgr not available, waiting (4/15)...
+/usr/bin/ceph: stdout 
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "fsid": "75ab91f2-2c23-11f0-8e6f-1c697af53932",
+/usr/bin/ceph: stdout     "health": {
+/usr/bin/ceph: stdout         "status": "HEALTH_OK",
+/usr/bin/ceph: stdout         "checks": {},
+/usr/bin/ceph: stdout         "mutes": []
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "election_epoch": 5,
+/usr/bin/ceph: stdout     "quorum": [
+/usr/bin/ceph: stdout         0
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_names": [
+/usr/bin/ceph: stdout         "xdlinux"
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_age": 12,
+/usr/bin/ceph: stdout     "monmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "min_mon_release_name": "squid",
+/usr/bin/ceph: stdout         "num_mons": 1
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "osdmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "num_osds": 0,
+/usr/bin/ceph: stdout         "num_up_osds": 0,
+/usr/bin/ceph: stdout         "osd_up_since": 0,
+/usr/bin/ceph: stdout         "num_in_osds": 0,
+/usr/bin/ceph: stdout         "osd_in_since": 0,
+/usr/bin/ceph: stdout         "num_remapped_pgs": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "pgmap": {
+/usr/bin/ceph: stdout         "pgs_by_state": [],
+/usr/bin/ceph: stdout         "num_pgs": 0,
+/usr/bin/ceph: stdout         "num_pools": 0,
+/usr/bin/ceph: stdout         "num_objects": 0,
+/usr/bin/ceph: stdout         "data_bytes": 0,
+/usr/bin/ceph: stdout         "bytes_used": 0,
+/usr/bin/ceph: stdout         "bytes_avail": 0,
+/usr/bin/ceph: stdout         "bytes_total": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "fsmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "btime": "2025-05-08T15:46:24:680595+0000",
+/usr/bin/ceph: stdout         "by_rank": [],
+/usr/bin/ceph: stdout         "up:standby": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "mgrmap": {
+/usr/bin/ceph: stdout         "available": false,
+/usr/bin/ceph: stdout         "num_standbys": 0,
+/usr/bin/ceph: stdout         "modules": [
+/usr/bin/ceph: stdout             "iostat",
+/usr/bin/ceph: stdout             "nfs",
+/usr/bin/ceph: stdout             "restful"
+/usr/bin/ceph: stdout         ],
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "servicemap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "modified": "2025-05-08T15:46:24.682610+0000",
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "progress_events": {}
+/usr/bin/ceph: stdout }
+mgr not available, waiting (5/15)...
+/usr/bin/ceph: stdout 
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "fsid": "75ab91f2-2c23-11f0-8e6f-1c697af53932",
+/usr/bin/ceph: stdout     "health": {
+/usr/bin/ceph: stdout         "status": "HEALTH_OK",
+/usr/bin/ceph: stdout         "checks": {},
+/usr/bin/ceph: stdout         "mutes": []
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "election_epoch": 5,
+/usr/bin/ceph: stdout     "quorum": [
+/usr/bin/ceph: stdout         0
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_names": [
+/usr/bin/ceph: stdout         "xdlinux"
+/usr/bin/ceph: stdout     ],
+/usr/bin/ceph: stdout     "quorum_age": 14,
+/usr/bin/ceph: stdout     "monmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "min_mon_release_name": "squid",
+/usr/bin/ceph: stdout         "num_mons": 1
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "osdmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "num_osds": 0,
+/usr/bin/ceph: stdout         "num_up_osds": 0,
+/usr/bin/ceph: stdout         "osd_up_since": 0,
+/usr/bin/ceph: stdout         "num_in_osds": 0,
+/usr/bin/ceph: stdout         "osd_in_since": 0,
+/usr/bin/ceph: stdout         "num_remapped_pgs": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "pgmap": {
+/usr/bin/ceph: stdout         "pgs_by_state": [],
+/usr/bin/ceph: stdout         "num_pgs": 0,
+/usr/bin/ceph: stdout         "num_pools": 0,
+/usr/bin/ceph: stdout         "num_objects": 0,
+/usr/bin/ceph: stdout         "data_bytes": 0,
+/usr/bin/ceph: stdout         "bytes_used": 0,
+/usr/bin/ceph: stdout         "bytes_avail": 0,
+/usr/bin/ceph: stdout         "bytes_total": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "fsmap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "btime": "2025-05-08T15:46:24:680595+0000",
+/usr/bin/ceph: stdout         "by_rank": [],
+/usr/bin/ceph: stdout         "up:standby": 0
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "mgrmap": {
+/usr/bin/ceph: stdout         "available": true,
+/usr/bin/ceph: stdout         "num_standbys": 0,
+/usr/bin/ceph: stdout         "modules": [
+/usr/bin/ceph: stdout             "iostat",
+/usr/bin/ceph: stdout             "nfs",
+/usr/bin/ceph: stdout             "restful"
+/usr/bin/ceph: stdout         ],
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "servicemap": {
+/usr/bin/ceph: stdout         "epoch": 1,
+/usr/bin/ceph: stdout         "modified": "2025-05-08T15:46:24.682610+0000",
+/usr/bin/ceph: stdout         "services": {}
+/usr/bin/ceph: stdout     },
+/usr/bin/ceph: stdout     "progress_events": {}
+/usr/bin/ceph: stdout }
+mgr is available
+/usr/bin/ceph: stdout 
+/usr/bin/ceph: stdout [global]
+/usr/bin/ceph: stdout 	fsid = 75ab91f2-2c23-11f0-8e6f-1c697af53932
+/usr/bin/ceph: stdout 	mon_host = [v2:192.168.1.150:3300,v1:192.168.1.150:6789]
+Enabling cephadm module...
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "epoch": 5,
+/usr/bin/ceph: stdout     "available": true,
+/usr/bin/ceph: stdout     "active_name": "xdlinux.qnvoyl",
+/usr/bin/ceph: stdout     "num_standby": 0
+/usr/bin/ceph: stdout }
+Waiting for the mgr to restart...
+Waiting for mgr epoch 5...
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "mgrmap_epoch": 7,
+/usr/bin/ceph: stdout     "initialized": true
+/usr/bin/ceph: stdout }
+mgr epoch 5 is available
+Setting orchestrator backend to cephadm...
+/usr/bin/ceph: stdout value unchanged
+Generating ssh key...
+/usr/bin/ceph: stdout ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCsw5NQIqBcDbkb2rJl49v6wqj/ezXjonE5KDJoFLHZpRlExLFn2rsStKh6AFP+jgC/Y/vfsexwTZXBrle4P1dgEMErj5F3Mf/JOEecvfiT+adz1fK8Xf3Z4+5BNAXvpy9bL+AsBpiASyPQg1cx6TL6/ul6MjlanrGCbI/1sUoHxjtO6Vu3OYwCiWhXZHud5F8bZDmf+84aoP22JZErh8uSanmEvuHb4jFfP/CAP9b5tpr9xih2phm5o3JdVuaclTbc8mZRun6X0sENrRZzxqFChwZ5rWZPQss3/1/ZONTJ+OZFXUtZzAqXHgu4Jd8w5sRfJOAaoFA5/p12vOFN6e050LVfjcr4Ox+xFhLStRwFvDtkXU+e2Iw4s+uQvdbBr4vodmfROzLxvJwQvk6nMMag9yow7XxQj5B3yIWBJMQ36KbGNh/zfIZVVa5BFsSuN95PXlj81YcN0pRKOj4vqrQIhjLJoAKypaVkhtbZV8aecUjaw2KmKMZEO0IbaaVzxiU= ceph-75ab91f2-2c23-11f0-8e6f-1c697af53932
+Wrote public SSH key to /etc/ceph/ceph.pub
+Adding key to root@localhost authorized_keys...
+Adding host xdlinux...
+/usr/bin/ceph: stdout Added host 'xdlinux' with addr '192.168.1.150'
+Deploying mon service with default placement...
+/usr/bin/ceph: stdout Scheduled mon update...
+Deploying mgr service with default placement...
+/usr/bin/ceph: stdout Scheduled mgr update...
+Deploying crash service with default placement...
+/usr/bin/ceph: stdout Scheduled crash update...
+Deploying ceph-exporter service with default placement...
+/usr/bin/ceph: stdout Scheduled ceph-exporter update...
+Deploying prometheus service with default placement...
+/usr/bin/ceph: stdout Scheduled prometheus update...
+Deploying grafana service with default placement...
+/usr/bin/ceph: stdout Scheduled grafana update...
+Deploying node-exporter service with default placement...
+/usr/bin/ceph: stdout Scheduled node-exporter update...
+Deploying alertmanager service with default placement...
+/usr/bin/ceph: stdout Scheduled alertmanager update...
+Enabling the dashboard module...
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "epoch": 9,
+/usr/bin/ceph: stdout     "available": true,
+/usr/bin/ceph: stdout     "active_name": "xdlinux.qnvoyl",
+/usr/bin/ceph: stdout     "num_standby": 0
+/usr/bin/ceph: stdout }
+Waiting for the mgr to restart...
+Waiting for mgr epoch 9...
+/usr/bin/ceph: stdout {
+/usr/bin/ceph: stdout     "mgrmap_epoch": 11,
+/usr/bin/ceph: stdout     "initialized": true
+/usr/bin/ceph: stdout }
+mgr epoch 9 is available
+Generating a dashboard self-signed certificate...
+/usr/bin/ceph: stdout Self-signed certificate created
+Creating initial admin user...
+/usr/bin/ceph: stdout {"username": "admin", "password": "$2b$12$LEdAbxK6jBRVIvc6QzgATObgpcgc9WS7TD9vzzDZWuEbuMAU/g6Xm", "roles": ["administrator"], "name": null, "email": null, "lastUpdate": 1746719240, "enabled": true, "pwdExpirationDate": null, "pwdUpdateRequired": true}
+Fetching dashboard port number...
+/usr/bin/ceph: stdout 8443
+systemctl: stdout enabled
+systemctl: stdout active
+firewalld ready
+/usr/bin/firewall-cmd: stdout yes
+firewalld port 8443/tcp is enabled in current zone
+/usr/bin/firewall-cmd: stdout success
+Ceph Dashboard is now available at:
+
+	     URL: https://xdlinux:8443/
+	    User: admin
+	Password: k94vvrmdmz
+
+Enabling client.admin keyring and conf on hosts with "admin" label
+/usr/bin/ceph: stdout Added label _admin to host xdlinux
+Saving cluster configuration to /var/lib/ceph/75ab91f2-2c23-11f0-8e6f-1c697af53932/config directory
+/usr/bin/ceph: stderr set mgr/dashboard/cluster/status
+You can access the Ceph CLI as following in case of multi-cluster or non-default config:
+
+	sudo /usr/sbin/cephadm shell --fsid 75ab91f2-2c23-11f0-8e6f-1c697af53932 -c /etc/ceph/ceph.conf -k /etc/ceph/ceph.client.admin.keyring
+
+Or, if you are only running a single cluster on this host:
+
+	sudo /usr/sbin/cephadm shell 
+
+Please consider enabling telemetry to help improve Ceph:
+
+	ceph telemetry on
+
+For more information see:
+
+	https://docs.ceph.com/en/latest/mgr/telemetry/
+
+Bootstrap complete.
