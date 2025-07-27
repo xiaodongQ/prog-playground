@@ -1,0 +1,46 @@
+# redis-statefulset.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-headless
+  labels:
+    app: redis
+spec:
+  clusterIP: None  # 无头服务，用于StatefulSet
+  ports:
+  - port: 6379
+    name: redis
+  selector:
+    app: redis
+
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis
+spec:
+  serviceName: "redis-headless"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:7.2.4
+        ports:
+        - containerPort: 6379
+          name: redis
+        volumeMounts:
+        - name: redis-data
+          mountPath: /data
+        args:
+        - "--appendonly"
+        - "yes"  # 启用AOF持久化（仅内存临时存储）
+      volumes:
+      - name: redis-data
+        emptyDir: {}  # 使用临时存储，不持久化到磁盘
