@@ -5,3 +5,5 @@ network/tcp_timewait_rcv_syn/server
 leveldb/test_leveldb
 *a.out
 .cache
+network/unix_domain_socket/client
+network/unix_domain_socket/server
